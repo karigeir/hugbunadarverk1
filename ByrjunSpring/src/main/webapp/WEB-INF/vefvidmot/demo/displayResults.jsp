@@ -8,11 +8,11 @@
 <html lang="en">
 
 <head>
-    <title>Góğan daginn</title>
+    <title>Nafn bókar</title>
 </head>
 <body>
 
-<h1>Góğan daginn ${nafn}</h1>
+<h1>Bókin heitir: ${nafn}</h1>
 
 </body>
 

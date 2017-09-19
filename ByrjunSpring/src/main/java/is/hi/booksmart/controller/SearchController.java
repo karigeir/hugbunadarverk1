@@ -1,4 +1,4 @@
-package is.hi.byrjun.controller;
+package is.hi.booksmart.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,16 +16,25 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 @RequestMapping("/demo") // Request Mapping er gerð fyrir klasann til að slóðin byrji á /demo fyrir allar skipanir 
-public class DemoController {
-
-
+public class SearchController {
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
     /**
      * Sýnidæmi
      * @return
      */
     @RequestMapping("/page")
     public String demoPage(){
-        return "demo/demo"; // skilar .jsp skrá sem er /webapp/WEB-INF/vefvidmot/demo/demo.jsp
+        return "demo/search"; // skilar .jsp skrá sem er /webapp/WEB-INF/vefvidmot/demo/demo.jsp
                             // skoðið application.properties til að sjá hvernig slóðin er sett
     }
     
@@ -36,19 +45,19 @@ public class DemoController {
      */
     @RequestMapping("/spyrjaNotanda")
     public String spyrjaNotanda() {
-    		return "demo/hvadaNotandi";
+    		return "demo/search";
     }
 
     /**
-     * Tekur við nafni frá notanda og birtir "Góðan daginn ${nafn}".
-     * @param nafn - Nafn á notanda.
+     * Tekur við nafni á bók og birtir bókina".
+     * @param nafn - Nafn á bók.
      * @param model - Model með attributes.
      * @return
      */
     @RequestMapping(value="/hver", method=RequestMethod.POST)
     public String hver(@RequestParam(value="nafn", required=false)String nafn, ModelMap model) {
     		model.addAttribute("nafn", nafn);
-    		return "demo/synaNotandi";
+    		return "demo/displayResults";
     }
 
 }
