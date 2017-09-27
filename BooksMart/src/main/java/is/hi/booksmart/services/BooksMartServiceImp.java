@@ -3,11 +3,8 @@ package is.hi.booksmart.services;
 import java.util.ArrayList;
 
 import is.hi.booksmart.model.Book;
-import is.hi.booksmart.storage.StorageConnectionMock;
 
 public class BooksMartServiceImp implements BooksMartService {
-	
-	StorageConnectionMock sc = new StorageConnectionMock();
 
 	@Override
 	public boolean isUsernameGood(String username) {
@@ -26,27 +23,34 @@ public class BooksMartServiceImp implements BooksMartService {
 
 	@Override
 	public ArrayList<Book> getBookByTitle(String title) {
-		return sc.getBooksByTitle(title);
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	@Override
 	public ArrayList<Book> getBookByAuthor(String author) {
-		return sc.getBooksByAuthor(author);
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	@Override
 	public ArrayList<Book> getBookByCourse(String courseName, String courseId) {
-		return sc.getBooksByCourse(courseName, courseId);
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	@Override
 	public ArrayList<Book> getBookByDepartment(String deptName) {
-		return sc.getBooksByDepartment(deptName);
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	@Override
 	public ArrayList<Book> getBookBySchool(String schoolName) {
-		return sc.getBooksBySchool(schoolName);
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
+
+//jsp sér um útfærslur?
