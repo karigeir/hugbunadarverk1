@@ -1,6 +1,6 @@
 package is.hi.booksmart.services;
 
-public interface BooksMartService {
+public interface UserService {
 	
 	public boolean isUsernameGood(String username);
 	
