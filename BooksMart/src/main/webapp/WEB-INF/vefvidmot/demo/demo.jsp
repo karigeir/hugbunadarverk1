@@ -1,5 +1,5 @@
 <!-- @author Sævar Ingi Sigurðsson <sis108@hi.is> -->
-<!-- .jsp skrá sem containing HTML for a website with URL "../demo/page" (see DemoController) -->
+<!-- .jsp file containing HTML for a website with URL "../demo/page" (see DemoController) -->
 <!DOCTYPE html>
 
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>

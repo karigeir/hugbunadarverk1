@@ -4,16 +4,23 @@
 
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ page isELIgnored="false" %>
 
 <html lang="en">
 
-<head>
-    <title>Nafn bókar</title>
-</head>
-<body>
+	<head>
+   	 	<title>Leitarniğurstöğur</title>
+	</head>
+	<body>
+	
+		<div>Listinn: 
+			<ul>
+				<c:forEach var="listVal" items="${list}">
+					<li> ${listVal}</li>
+				</c:forEach>
+			</ul>
+		</div>
 
-<h1>Bókin heitir: ${nafn}</h1>
-
-</body>
+	</body>
 
 </html>
