@@ -60,7 +60,7 @@ public class StorageConnectionMock {
 		book = new Book("Java for Not Dummies, But Not Smart People Either", "Not a dummy anymore", 1, iceCompSciC.getDepartment().getSchool(), iceCompSciC.getDepartment(), iceCompSciC);
 		books.add(book);
 		
-		book = new Book ("Philosophy 101.1: All the Shit I Forgot the First Time", "A Great Mind", 1, icePhilC.getDepartment().getSchool(), icePhilC.getDepartment(), icePhilC);
+		book = new Book("Philosophy 101.1: All the Shit I Forgot the First Time", "A Great Mind", 1, icePhilC.getDepartment().getSchool(), icePhilC.getDepartment(), icePhilC);
 		books.add(book);
 		
 		book = new Book("Can Dogs Read Minds?", "Dog Dogson", 24, rvkPsyC.getDepartment().getSchool(), rvkPsyC.getDepartment(), rvkPsyC);
@@ -79,7 +79,7 @@ public class StorageConnectionMock {
 		books.add(book);
 	}
 	
-	public ArrayList<Book> getBookByTitle(String title) {
+	public ArrayList<Book> getBooksByTitle(String title) {
 		ArrayList<Book> titleBooks = new ArrayList<Book>();
 		
 		for (int i = 0; i < books.size(); i++) {
@@ -94,7 +94,7 @@ public class StorageConnectionMock {
 		}
 	}
 	
-	public ArrayList<Book> getBookByAuthor(String author) {
+	public ArrayList<Book> getBooksByAuthor(String author) {
 		ArrayList<Book> authorBooks = new ArrayList<Book>();
 		
 		for (int i = 0; i < books.size(); i++) {

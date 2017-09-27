@@ -1,4 +1,4 @@
-package is.hi.booksmart.application;
+package is.hi.booksmart;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
