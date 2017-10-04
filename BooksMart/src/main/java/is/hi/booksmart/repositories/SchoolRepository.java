@@ -1,5 +1,7 @@
 package is.hi.booksmart.repositories;
 
+import java.util.List;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import is.hi.booksmart.model.School;
@@ -15,5 +17,9 @@ import is.hi.booksmart.model.School;
  */
 
 public interface SchoolRepository extends JpaRepository<School, Long> {
-
+	/*
+	 * Gets all schools
+	 * @return list of schools
+	 */
+	List<School> findAll();
 }
