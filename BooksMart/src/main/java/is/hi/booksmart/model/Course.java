@@ -1,5 +1,20 @@
 package is.hi.booksmart.model;
 
+import java.util.HashSet;
+import java.util.Set;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
 /**
  * 
  * @author Sævar Ingi Sigurðsson <sis108@hi.is>
@@ -9,19 +24,37 @@ package is.hi.booksmart.model;
  * Stores information on courses (name, identification number and associated department).
  * 
  */
-
+@Entity
+@Table (name="course")
 public class Course {
 	
+	@Id
+	@Column (name = "courseId")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private long id;
+	private String courseNo;
 	private String name;
-	private String idNo;
+	
+	@ManyToOne(fetch = FetchType.LAZY, optional = false)
+	@JoinColumn(name = "departmentId")
 	private Department department;
+
+	@OneToMany(mappedBy="course", fetch=FetchType.LAZY, cascade=CascadeType.ALL, orphanRemoval=true)
+	private Set<Book> books = new HashSet<Book>();
 	
-	
-	public Course(String name, String idNo, Department department) {
+	public Course(String courseNo, String name, Department department) {
 		super();
+		this.courseNo = courseNo;
 		this.name = name;
-		this.idNo = idNo;
 		this.department = department;
+	}
+	
+	public String getCourseNo() {
+		return courseNo;
+	}
+
+	public void setCourseNo(String courseNo) {
+		this.courseNo = courseNo;
 	}
 
 	public String getName() {
@@ -30,14 +63,6 @@ public class Course {
 
 	public void setName(String name) {
 		this.name = name;
-	}
-
-	public String getIdNo() {
-		return idNo;
-	}
-
-	public void setIdNo(String idNo) {
-		this.idNo = idNo;
 	}
 
 	public Department getDepartment() {
@@ -50,7 +75,7 @@ public class Course {
 	
 	@Override
 	public String toString() {
-		return name + ", " + idNo + ", " + department.getName();
+		return name + ", " + courseNo + ", " + department.getName();
 	}
 	
 }

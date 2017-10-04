@@ -1,9 +1,13 @@
 package is.hi.booksmart.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 /**
@@ -20,23 +24,25 @@ import javax.persistence.Table;
 @Entity
 @Table (name="book")
 public class Book {
+	
 	@Id
+	@Column (name = "bookId")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
 	private String title;
 	private String author;
 	private int edition;
-	private School school;
-	private Department department;
+	
+	@ManyToOne(fetch = FetchType.LAZY, optional = false)
+	@JoinColumn(name = "courseId")
 	private Course course;
 	
 	
-	public Book(String title, String author, int edition, School school, Department department, Course course) {
+	public Book(String title, String author, int edition, Course course) {
 		super();
 		this.title = title;
 		this.author = author;
 		this.edition = edition;
-		this.school = school;
-		this.department = department;
 		this.course = course;
 	}
 	
@@ -64,30 +70,14 @@ public class Book {
 		this.edition = edition;
 	}
 	
-	public School getSchool() {
-		return school;
-	}
-	
-	public void setSchool(School school) {
-		this.school = school;
-	}
-	
-	public Department getDepartment() {
-		return department;
-	}
-	
-	public void setDepartment(Department department) {
-		this.department = department;
-	}
-	
 	public Course getCourse() {
 		return course;
 	}
-	
+
 	public void setCourse(Course course) {
 		this.course = course;
 	}
-	
+
 	@Override
 	public String toString() {
 		return title + ", " + edition + ", " + author;

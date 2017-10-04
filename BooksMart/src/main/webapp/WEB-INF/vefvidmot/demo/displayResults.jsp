@@ -16,7 +16,7 @@
 		<div>Listinn: 
 			<ul>
 				<c:forEach var="listVal" items="${list}">
-					<li> ${listVal}</li>
+					<li> ${listVal.title}</li>
 				</c:forEach>
 			</ul>
 		</div>
