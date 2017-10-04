@@ -1,5 +1,15 @@
 package is.hi.booksmart.services;
 
-public interface SchoolService {
+import java.util.List;
 
+import is.hi.booksmart.model.School;
+
+public interface SchoolService {
+	
+	/*
+	 * Returns all courses in coursesRep
+	 * 
+	 * @return list of courses
+	 */
+	public List<School> allSchools();
 }
