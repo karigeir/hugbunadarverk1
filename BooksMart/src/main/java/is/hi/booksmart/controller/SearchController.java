@@ -53,6 +53,12 @@ public class SearchController 	{
      * @param model - Model með attributes.
      * @return
      */
+//    @RequestMapping(value="/results", method=RequestMethod.POST)
+//    public ModelAndView displayResults(@RequestParam("title")String title, @RequestParam("author")String author,
+//    						@RequestParam("edition")int edition, @RequestParam("course")String course,
+//    						@RequestParam("department")String dept, @RequestParam("school")String school) {
+//    		ArrayList<Book> list = bsm.getBookByTitle(title);
+//    		return new ModelAndView("displayResult", "list", list);
     @RequestMapping(value="/results", method=RequestMethod.POST)
     public ModelAndView displayResults(@RequestParam("title")String title, @RequestParam("author")String author,
     						@RequestParam("edition")int edition, @RequestParam("course")String course,
@@ -60,6 +66,4 @@ public class SearchController 	{
     		ArrayList<Book> list = bsm.getBookByTitle(title);
     		return new ModelAndView("displayResult", "list", list);
     }
-
-}
-
+ }
