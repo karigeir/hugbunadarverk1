@@ -37,13 +37,18 @@ public class Book {
 	@JoinColumn(name = "courseId")
 	private Course course;
 	
+	@ManyToOne(fetch = FetchType.LAZY, optional = false)
+	@JoinColumn(name = "userId")
+	private User user;
 	
-	public Book(String title, String author, int edition, Course course) {
+	
+	public Book(String title, String author, int edition, Course course, User user) {
 		super();
 		this.title = title;
 		this.author = author;
 		this.edition = edition;
 		this.course = course;
+		this.user = user;
 	}
 	
 	public String getTitle() {

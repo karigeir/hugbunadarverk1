@@ -1,11 +1,13 @@
 package is.hi.booksmart.services;
 
+import java.util.List;
+import is.hi.booksmart.model.User;
+
 public interface UserService {
 	
-	public boolean isUsernameGood(String username);
-	
-	public boolean isEmailGood(String email);
-	
-	public boolean isPasswordGood(String password);
-	
+	/**
+	 * Get all users
+	 * @return list of users
+	 */
+	public List<User> allUsers();
 }
