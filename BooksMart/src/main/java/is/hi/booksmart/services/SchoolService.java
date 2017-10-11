@@ -6,7 +6,7 @@ import is.hi.booksmart.model.School;
 
 public interface SchoolService {
 	
-	/*
+	/**
 	 * Returns all courses in coursesRep
 	 * 
 	 * @return list of courses

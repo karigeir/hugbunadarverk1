@@ -11,16 +11,13 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 /**
- * 
  * @author Sævar Ingi Sigurðsson <sis108@hi.is>
- * @date 19. september 2017
- * HBV501G Software Development 1
+ * @author Kári Geir Gunnarsson <kgg5@hi.is>
+ * @date September 2017
+ * HBV501G Software Project 1
  * 
- * Stores information on books (title, author, edition, associated course, department and school).
- * 
+ * Implemenents the Book type.
  */
-
-
 @Entity
 @Table (name="book")
 public class Book {
@@ -41,7 +38,15 @@ public class Book {
 	@JoinColumn(name = "userId")
 	private User user;
 	
-	
+	/**
+	 * Constructor for Book.
+	 * 
+	 * @param title - Title of Book.
+	 * @param author - Author of Book.
+	 * @param edition - Edition of Book.
+	 * @param course - Course that Book is associated with.
+	 * @param user - User who posted Book up for sale.
+	 */
 	public Book(String title, String author, int edition, Course course, User user) {
 		super();
 		this.title = title;
@@ -51,38 +56,81 @@ public class Book {
 		this.user = user;
 	}
 	
+	/**
+	 * Getter for title attribute.
+	 * 
+	 * @return title - Book title.
+	 */
 	public String getTitle() {
 		return title;
 	}
 	
+	/**
+	 * Setter for title attribute.
+	 * 
+	 * @param title - Book title.
+	 */
 	public void setTitle(String title) {
 		this.title = title;
 	}
 	
+	/**
+	 * Getter for author attribute.
+	 * @return author - Book's author.
+	 */
 	public String getAuthor() {
 		return author;
 	}
 	
+	/**
+	 * Setter for author attribute.
+	 * @param author - Book's author.
+	 */
 	public void setAuthor(String author) {
 		this.author = author;
 	}
 	
+	/**
+	 * Getter for edition attribute.
+	 * 
+	 * @return edition - Book's edition.
+	 */
 	public int getEdition() {
 		return edition;
 	}
 	
+	/**
+	 * Setter for edition attribute.
+	 * 
+	 * @param edition - Book's edition.
+	 */
 	public void setEdition(int edition) {
 		this.edition = edition;
 	}
 	
+	/**
+	 * Getter for course attribute.
+	 * 
+	 * @return course - Course associated with book.
+	 */
 	public Course getCourse() {
 		return course;
 	}
 
+	/**
+	 * Setter for course attribute.
+	 * 
+	 * @param course - Course associated with book.
+	 */
 	public void setCourse(Course course) {
 		this.course = course;
 	}
 
+	/**
+	 * A simple toString implementation.
+	 * 
+	 * @return - Book as a string of "title, edition, author".
+	 */
 	@Override
 	public String toString() {
 		return title + ", " + edition + ", " + author;

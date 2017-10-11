@@ -14,7 +14,7 @@
 
 		<h1>Leitaðu að bók</h1>
 
-		<form method="POST" action="/app/results">
+		<form method="GET" action="/app/results">
 			Titill: <input name="title" type="text" placeholder="Titill"></input><br>
 			Höfundur: <input name="author" type="text" placeholder="Höfundur"></input><br>
 			Útgáfa: <input name="edition" type="text" placeholder="Útgáfa"></input><br>

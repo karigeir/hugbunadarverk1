@@ -7,6 +7,7 @@ public interface UserService {
 	
 	/**
 	 * Get all users
+	 * 
 	 * @return list of users
 	 */
 	public List<User> allUsers();

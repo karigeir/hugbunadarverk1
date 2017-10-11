@@ -16,7 +16,7 @@ import is.hi.booksmart.model.Course;
 
 public interface CourseService {
 	
-	/*
+	/**
 	 * Returns all courses in coursesRep
 	 * 
 	 * @return list of courses

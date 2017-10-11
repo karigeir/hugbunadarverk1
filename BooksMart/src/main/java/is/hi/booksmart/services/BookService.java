@@ -6,12 +6,14 @@ import is.hi.booksmart.model.Book;
 public interface BookService {
 	/**
 	 * Returns a list of all books in BookRpository
+	 * 
 	 * @return list of Books
 	 */
 	public List<Book> allBooks();
 	
 	/**
 	 * Save a book into the repository
+	 * 
 	 * @param book
 	 * @return
 	 */
@@ -19,6 +21,7 @@ public interface BookService {
 	
 	/**
 	 * Return a list of books with a title
+	 * 
 	 * @param title
 	 * @return List of Books with title "title"
 	 */

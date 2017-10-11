@@ -16,13 +16,12 @@ import javax.persistence.Table;
 
 
 /**
- * 
+ * @author Kári Geir Gunnarsson <kgg5@hi.is>
  * @author Sævar Ingi Sigurðsson <sis108@hi.is>
  * @date 19.september 2017
  * HVB501G Software Development 1
  * 
- * Stores name and abbreviation of schools.
- *
+ * Implements the School type.
  */
 @Entity
 @Table (name="school")
@@ -34,31 +33,62 @@ public class School {
 	private long id;
 	private String name;
 	private String abbrev;
+	
 	@OneToMany(mappedBy="school", fetch=FetchType.LAZY, cascade=CascadeType.ALL, orphanRemoval=true)
 	private Set<Department> department = new HashSet<Department>();	
 	
+	/**
+	 * Constructor for School.
+	 * 
+	 * @param name - Name of School.
+	 * @param abbrev - Abbreviation of School name.
+	 */
 	public School(String name, String abbrev) {
 		super();
 		this.name = name;
 		this.abbrev = abbrev;
 	}
 	
+	/**
+	 * Getter for school name.
+	 * 
+	 * @return name - Name of school.
+	 */
 	public String getName() {
 		return name;
 	}
 
+	/**
+	 * Setter for school name.
+	 * 
+	 * @param name - Name of school.
+	 */
 	public void setName(String name) {
 		this.name = name;
 	}
 
+	/**
+	 * Getter for abbreviation of school name.
+	 * @return abbrev - Abbreviation of school name.
+	 */
 	public String getAbbrev() {
 		return abbrev;
 	}
 
+	/**
+	 * Setter for abbreviation of school name.
+	 * 
+	 * @param abbrev - Abbreviation of school name.
+	 */
 	public void setAbbrev(String abbrev) {
 		this.abbrev = abbrev;
 	}
 	
+	/**
+	 * A simple toString implementation.
+	 * 
+	 * @return - School as a string of "name, abbreviation".
+	 */
 	@Override
 	public String toString() {
 		return name + ", " + abbrev;
