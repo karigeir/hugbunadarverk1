@@ -38,6 +38,12 @@ public class School {
 	private Set<Department> department = new HashSet<Department>();	
 	
 	/**
+	 * Default constructor.
+	 */
+	public School() {	
+	}
+	
+	/**
 	 * Constructor for School.
 	 * 
 	 * @param name - Name of School.

@@ -41,6 +41,12 @@ public class Department {
 	@OneToMany(mappedBy="department", fetch=FetchType.LAZY, cascade=CascadeType.ALL, orphanRemoval=true)
 	private Set<Course> courses = new HashSet<Course>();
 
+	/**
+	 * Default constructor.
+	 */
+	public Department() {
+	}
+	
 	public Department(String name, School school) {
 		this.name = name;
 		this.school = school;
@@ -53,18 +59,18 @@ public class Department {
 	public void setName(String name) {
 		this.name = name;
 	}
+	
+	public School getSchool() {
+		return school;
+	}
 
-//	public School getSchool() {
-//		return school;
-//	}
-//
-//	public void setSchool(School school) {
-//		this.school = school;
-//	}
-//	
-//	@Override
-//	public String toString() {
-//		return name + ", " + school.getName();
-//	}
-//	
+	public void setSchool(School school) {
+		this.school = school;
+	}
+	
+	@Override
+	public String toString() {
+		return name + ", " + school.getName();
+	}
+	
 }

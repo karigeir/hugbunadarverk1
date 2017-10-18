@@ -42,6 +42,12 @@ public class Course {
 	@OneToMany(mappedBy="course", fetch=FetchType.LAZY, cascade=CascadeType.ALL, orphanRemoval=true)
 	private Set<Book> books = new HashSet<Book>();
 	
+	/**
+	 * Default constructor.
+	 */
+	public Course() {
+	}
+	
 	public Course(String courseNo, String name, Department department) {
 		super();
 		this.courseNo = courseNo;

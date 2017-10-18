@@ -23,6 +23,7 @@ public interface CourseService {
 	 */
 	public List<Course> allCourses();
 	
+	public Course save(Course course);
 	
 	
 }

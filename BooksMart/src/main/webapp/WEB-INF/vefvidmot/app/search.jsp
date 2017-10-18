@@ -22,8 +22,8 @@
 			Námsbraut: <input name="department" type="text" placeholder="Námsbraut"></input><br>
 			Skóli: <input name="school" type="text" placeholder="Skóli"></input><br>
 			<input type="submit" value="Search">
-	
 		</form>
+		<form method="GET" action="/app/all_books"><input type="submit" value="All books"/></form>
 
 	</body>
 

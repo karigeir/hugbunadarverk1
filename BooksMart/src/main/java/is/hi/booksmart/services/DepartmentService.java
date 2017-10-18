@@ -11,4 +11,6 @@ public interface DepartmentService {
 	 * @return List of departments
 	 */
 	public List<Department> allDepartments();
+	
+	public Department save(Department dept);
 }

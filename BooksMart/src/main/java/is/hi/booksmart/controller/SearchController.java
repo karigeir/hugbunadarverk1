@@ -14,7 +14,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 
 import is.hi.booksmart.model.Book;
+import is.hi.booksmart.model.Department;
+import is.hi.booksmart.model.School;
+import is.hi.booksmart.model.Course;
 import is.hi.booksmart.services.BookService;
+import is.hi.booksmart.services.CourseService;
+import is.hi.booksmart.services.DepartmentService;
+import is.hi.booksmart.services.SchoolService;
 
 /**
  * @author Sævar Ingi Sigurðsson <sis108@hi.is>
@@ -29,8 +35,14 @@ import is.hi.booksmart.services.BookService;
 public class SearchController 	{
 	
 	// Connection to service class(es).
-	//@Autowired
+	@Autowired
 	BookService bookService;
+	@Autowired
+	SchoolService schoolService;
+	@Autowired
+	DepartmentService departmentService;
+	@Autowired
+	CourseService courseService;
 	
     /**
      * Demo (to be removed later).
@@ -53,15 +65,63 @@ public class SearchController 	{
     }
     
     /**
+     * Display add Book form.
+     * 
+     * @return
+     */
+    @RequestMapping("/add_book")
+    public String displayBookForm() {
+    		return "app/addBook";
+    }
+    
+    /**
+     * Add book to database.
+     * 
+     * @return
+     */
+    @RequestMapping(value = "/book_confirm", method = RequestMethod.POST)
+    public String addBook(@RequestParam(value="title", required=true) String title,
+    		                  @RequestParam(value="author", required=true) String author,
+    		                  @RequestParam(value="edition", required=true) String edition,
+    		                  @RequestParam(value="course", required=true) String course,
+    		                  @RequestParam(value="department", required=true) String department,
+    		                  @RequestParam(value="school", required=true) String school, 
+    		                  @RequestParam(value="email", required=true) String email,
+    		                  ModelMap model) {
+
+    		int e = Integer.parseInt(edition);
+    		School s = new School(school, "HÍ");
+    		schoolService.save(s);
+    		Department d = new Department(department, s);
+    		departmentService.save(d);
+    		Course c = new Course("ASDF", course, d);
+    		courseService.save(c);
+    		Book b = new Book(title, author, e, c, email);
+    		
+    		model.addAttribute("book", b);
+    		bookService.save(b);
+    		
+    		return "app/bookAccept";
+    }
+    
+    /**
      * Display list of all books in database.
      * 
      * @param model - Model for UI communication.
      * @return Website containing a list of books.
      */
-    @RequestMapping(value="/results", method=RequestMethod.GET)
+    @RequestMapping(value="/all_books", method=RequestMethod.GET)
     public String allBooks(Model model) {
     		ArrayList<Book> list;
     		list = (ArrayList<Book>) bookService.allBooks();
+    		model.addAttribute("books", list);
+    		return "app/allBooks";
+    }
+    
+    @RequestMapping(value="/results", method=RequestMethod.GET)
+    public String booksByTitle (@RequestParam(value="title") String title, Model model) {
+    		ArrayList<Book> list;
+    		list = (ArrayList<Book>) bookService.booksByTitle(title);
     		model.addAttribute("books", list);
     		return "app/displayResults";
     }

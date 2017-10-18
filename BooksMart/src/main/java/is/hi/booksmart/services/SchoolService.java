@@ -12,4 +12,6 @@ public interface SchoolService {
 	 * @return list of courses
 	 */
 	public List<School> allSchools();
+	
+	public School save(School school);
 }

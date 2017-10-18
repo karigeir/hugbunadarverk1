@@ -26,17 +26,21 @@ public class Book {
 	@Column (name = "bookId")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+	
 	private String title;
 	private String author;
 	private int edition;
+	private String userContact;
 	
 	@ManyToOne(fetch = FetchType.LAZY, optional = false)
 	@JoinColumn(name = "courseId")
 	private Course course;
 	
-	@ManyToOne(fetch = FetchType.LAZY, optional = false)
-	@JoinColumn(name = "userId")
-	private User user;
+	/**
+	 * Default constructor.
+	 */
+	public Book() {
+	}
 	
 	/**
 	 * Constructor for Book.
@@ -47,13 +51,13 @@ public class Book {
 	 * @param course - Course that Book is associated with.
 	 * @param user - User who posted Book up for sale.
 	 */
-	public Book(String title, String author, int edition, Course course, User user) {
+	public Book(String title, String author, int edition, Course course, String userContact) {
 		super();
 		this.title = title;
 		this.author = author;
 		this.edition = edition;
 		this.course = course;
-		this.user = user;
+		this.userContact = userContact;
 	}
 	
 	/**
@@ -124,6 +128,23 @@ public class Book {
 	 */
 	public void setCourse(Course course) {
 		this.course = course;
+	}
+	/**
+	 * Getter for userContact attribute.
+	 * 
+	 * @return userContact - Contact information of the user selling the book.
+	 */
+	public String getUserContact() {
+		return userContact;
+	}
+
+	/**
+	 * Setter for userContact.
+	 * 
+	 * @param userContact - Contact information of the user selling the book.
+	 */
+	public void setUserContact(String userContact) {
+		this.userContact = userContact;
 	}
 
 	/**

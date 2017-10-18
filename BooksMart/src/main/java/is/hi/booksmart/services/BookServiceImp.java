@@ -3,10 +3,11 @@ package is.hi.booksmart.services;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-
+import org.springframework.stereotype.Service;
 import is.hi.booksmart.model.Book;
 import is.hi.booksmart.repositories.BookRepository;
 
+@Service
 public class BookServiceImp implements BookService {
 
 	// Connection to repository of Books.
