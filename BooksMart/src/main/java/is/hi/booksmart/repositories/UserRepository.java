@@ -1,10 +1,8 @@
 package is.hi.booksmart.repositories;
 
 import java.util.List;
-
 import org.springframework.data.jpa.repository.JpaRepository;
-
-import is.hi.booksmart.model.Course;
+import is.hi.booksmart.model.User;
 
 /**
  * 
@@ -12,15 +10,15 @@ import is.hi.booksmart.model.Course;
  * @date 4.október 2017
  * HBV501G Software Development 1
  * 
- * Repository for the Course model
+ * Repository for the User model
  * 
  */
-
-public interface CourseRepository extends JpaRepository<Course, Long> {
+public interface UserRepository extends JpaRepository<User, Long> {
+	 
 	/**
-	 * Gets all courses
+	 * Gets all Users
 	 * 
-	 * @return list of courses
+	 * @return list of users
 	 */
-	List<Course> findAll();
+	List<User> findAll();
 }

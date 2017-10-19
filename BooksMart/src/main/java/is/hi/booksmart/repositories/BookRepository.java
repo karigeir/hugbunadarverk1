@@ -19,6 +19,7 @@ public interface BookRepository extends JpaRepository<Book,Long>{
 	
 	/**
 	 * Gets all books
+	 * 
 	 * @return List of all books
 	 */
 	List<Book> findAll();

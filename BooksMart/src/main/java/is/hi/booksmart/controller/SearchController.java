@@ -21,6 +21,7 @@ import is.hi.booksmart.services.BookService;
 import is.hi.booksmart.services.CourseService;
 import is.hi.booksmart.services.DepartmentService;
 import is.hi.booksmart.services.SchoolService;
+import is.hi.booksmart.services.UserService;
 
 /**
  * @author Sævar Ingi Sigurðsson <sis108@hi.is>
@@ -43,6 +44,8 @@ public class SearchController 	{
 	DepartmentService departmentService;
 	@Autowired
 	CourseService courseService;
+	@Autowired
+	UserService userService;
 	
     /**
      * Demo (to be removed later).
