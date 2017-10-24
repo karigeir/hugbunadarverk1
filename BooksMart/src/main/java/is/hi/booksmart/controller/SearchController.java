@@ -62,7 +62,7 @@ public class SearchController 	{
      * 
      * @return
      */
-    @RequestMapping("/search")
+    @RequestMapping("")
     public String search() {
     		return "app/search";
     }
@@ -105,20 +105,6 @@ public class SearchController 	{
     		bookService.save(b);
     		
     		return "app/bookAccept";
-    }
-    
-    /**
-     * Display list of all books in database.
-     * 
-     * @param model - Model for UI communication.
-     * @return Website containing a list of books.
-     */
-    @RequestMapping(value="/all_books", method=RequestMethod.GET)
-    public String allBooks(Model model) {
-    		ArrayList<Book> list;
-    		list = (ArrayList<Book>) bookService.allBooks();
-    		model.addAttribute("books", list);
-    		return "app/allBooks";
     }
     
     @RequestMapping(value="/results", method=RequestMethod.GET)
