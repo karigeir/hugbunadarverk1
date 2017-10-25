@@ -33,9 +33,9 @@ public class User {
 	 * @param email - Email of the user.
 	 * @param pw - Password for the user.
 	 */
-	public User(long id, String username, String email, String pw) {
+	public User(String username, String email, String pw) {
 		super();
-		this.id = id;
+		
 		this.username = username;
 		this.email = email;
 		this.pw = pw;
