@@ -21,4 +21,11 @@ public interface UserRepository extends JpaRepository<User, Long> {
 	 * @return list of users
 	 */
 	List<User> findAll();
+	
+	/**
+	 * Add user to repository
+	 * @param book
+	 */
+	User save (User user);
+	
 }

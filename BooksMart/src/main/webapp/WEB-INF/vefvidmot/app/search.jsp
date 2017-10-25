@@ -7,20 +7,23 @@
 
 <html lang="en">
 
-	<head>
-    		<title>BooksMart</title>
-	</head>
-	<body>
+<head>
+<title>BooksMart</title>
+</head>
+<body>
 
-		<h1>BooksMart</h1>
+	<h1>BooksMart</h1>
 
-		<form method="GET" action="/app/results">
-			<input name="title" type="text" placeholder="Search for books..."> 
-			<input type="submit" value="Search">
-		</form>
-		
-		<a href="./adv_search"><button>Advanced Search</button></a>
+	<form method="GET" action="/app/results">
+		<input name="title" type="text" placeholder="Search for books...">
+		<input type="submit" value="Search">
+	</form>
 
-	</body>
+	<a href="./adv_search"><button>Advanced Search</button></a>
+
+	
+		<a href="./create_user"><button>Create User</button></a>
+	</form>
+</body>
 
 </html>

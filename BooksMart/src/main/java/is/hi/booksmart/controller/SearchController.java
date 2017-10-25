@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import is.hi.booksmart.model.Book;
 import is.hi.booksmart.model.Department;
 import is.hi.booksmart.model.School;
+import is.hi.booksmart.model.User;
 import is.hi.booksmart.model.Course;
 import is.hi.booksmart.services.BookService;
 import is.hi.booksmart.services.CourseService;
@@ -29,8 +30,7 @@ import is.hi.booksmart.services.UserService;
  * HBV501G Software Project 1
  * 
  * Controller that dictates what is done when the user or UI sends an instruction.
- */
-
+**/
 @Controller
 @RequestMapping("/app") // Request Mapping so that every site starts with /app. 
 public class SearchController 	{
@@ -78,6 +78,17 @@ public class SearchController 	{
     }
     
     /**
+     * Display add createUser page.
+     * 
+     * @return
+     */
+    @RequestMapping("/create_user")
+    public String displayUserCreate() {
+    		return "app/createUser";
+    }
+    
+    
+    /**
      * Add book to database.
      * 
      * @return
@@ -107,6 +118,25 @@ public class SearchController 	{
     		return "app/bookAccept";
     }
     
+    /**
+     * Add user to database.
+     * 
+     * @return
+     */
+    @RequestMapping(value = "/user_confirm", method = RequestMethod.POST)
+    public String createUser(@RequestParam(value="username", required=true) String username, 
+    		                  @RequestParam(value="email", required=true) String email,
+       		                  @RequestParam(value="pw", required=true) String pw,
+    		                  ModelMap model) {
+
+    		User a = new User(username, email, pw );
+    		userService.save(a);
+    		model.addAttribute("user", a);
+    		userService.save(a);
+    		
+    		return "app/userAccept";
+    }
+    
     @RequestMapping(value="/results", method=RequestMethod.GET)
     public String booksByTitle (@RequestParam(value="title") String title, Model model) {
     		ArrayList<Book> list;
@@ -114,4 +144,6 @@ public class SearchController 	{
     		model.addAttribute("books", list);
     		return "app/displayResults";
     }
+    
+    
  }
