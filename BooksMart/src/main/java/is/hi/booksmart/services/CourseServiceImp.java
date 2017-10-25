@@ -23,4 +23,9 @@ public class CourseServiceImp implements CourseService {
 	public Course save(Course course) {
 		return courseRep.save(course);
 	}
+	
+	@Override
+	public List<Course> coursesByDepartment(long depId) {
+		return courseRep.findByDepartment(depId);
+	}
 }

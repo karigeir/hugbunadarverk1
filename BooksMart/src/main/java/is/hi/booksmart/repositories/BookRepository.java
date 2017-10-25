@@ -36,4 +36,6 @@ public interface BookRepository extends JpaRepository<Book,Long>{
 	 * @return List of Books with title "title"
 	 */
 	List<Book> findByTitle(String title);
+	
+	List<Book> findByCourse(String course);
 }

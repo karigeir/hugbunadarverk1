@@ -56,6 +56,15 @@ public class School {
 	}
 	
 	/**
+	 * Getter for school ID.
+	 * 
+	 * @return id - id of school.
+	 */
+	public long getId() {
+		return id;
+	}
+	
+	/**
 	 * Getter for school name.
 	 * 
 	 * @return name - Name of school.

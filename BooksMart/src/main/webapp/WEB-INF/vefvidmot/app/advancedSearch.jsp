@@ -12,14 +12,18 @@
 	</head>
 	<body>
 
-		<h1>BooksMart</h1>
+		<h1>Advanced search</h1>
 
-		<form method="GET" action="/app/results">
-			<input name="title" type="text" placeholder="Search for books..."> 
+		<form method="GET" action="/app/test">
+			<input name="title" type="text" placeholder="Title...">
+			<input name="edition" type="text" size=2 maxlength=2 placeholder="Ed.">
+			<input name="author" type="text" placeholder="Author...">
 			<input type="submit" value="Search"><br>
-			<input type="checkbox" value="title"> by title
-			<input type="checkbox" value="course"> by Course
-			<input type="checkbox" value="school"> by School
+			<select>
+				<c:forEach var="school" items="${schools}">
+					<option value="${school.getId()}">${school.getName()}</option>
+				</c:forEach>
+			</select>
 		</form>
 		
 		<a href="/app/"><button>Back</button></a>

@@ -26,4 +26,6 @@ public interface BookService {
 	 * @return List of Books with title "title"
 	 */
 	public List<Book> booksByTitle(String title);
+	
+	public List<Book> booksByCourse(String course);
 }

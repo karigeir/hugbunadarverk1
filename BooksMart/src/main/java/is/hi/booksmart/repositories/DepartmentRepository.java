@@ -21,4 +21,6 @@ public interface DepartmentRepository extends JpaRepository<Department, Long> {
 	 * @return List of Departments
 	 */
 	List<Department> findAll();
+	
+	List<Department> findBySchool(long schoolId);
 }

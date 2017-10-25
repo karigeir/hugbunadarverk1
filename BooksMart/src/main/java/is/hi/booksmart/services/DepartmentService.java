@@ -13,4 +13,6 @@ public interface DepartmentService {
 	public List<Department> allDepartments();
 	
 	public Department save(Department dept);
+	
+	public List<Department> departmentsBySchool(long schoolId);
 }

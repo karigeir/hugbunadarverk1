@@ -29,4 +29,9 @@ public class BookServiceImp implements BookService {
 		return bookRep.findByTitle(title);
 	}
 	
+	@Override
+	public List<Book> booksByCourse(String course) {
+		return bookRep.findByCourse(course);
+	}
+	
 }

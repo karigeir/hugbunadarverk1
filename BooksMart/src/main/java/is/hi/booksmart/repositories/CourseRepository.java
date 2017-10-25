@@ -23,4 +23,6 @@ public interface CourseRepository extends JpaRepository<Course, Long> {
 	 * @return list of courses
 	 */
 	List<Course> findAll();
+	
+	List<Course> findByDepartment(long depId);
 }

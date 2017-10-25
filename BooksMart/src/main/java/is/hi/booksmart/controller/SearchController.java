@@ -1,6 +1,11 @@
 package is.hi.booksmart.controller;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -67,6 +72,17 @@ public class SearchController 	{
     		return "app/search";
     }
     
+    @RequestMapping("/adv_search")
+    public String advSearch(ModelMap model) {
+    		ArrayList<School> schools = (ArrayList<School>) schoolService.allSchools();
+    		//ArrayList<Department> depts = (ArrayList<Department>) departmentService.departmentsBySchool();
+    		//ArrayList<Course> courses = (ArrayList<Course> courseService.coursesByDepartment(depId));
+    		
+    		model.addAttribute("schools", schools);
+    		
+    		return "app/advancedSearch";
+    }
+    
     /**
      * Display add Book form.
      * 
@@ -114,4 +130,24 @@ public class SearchController 	{
     		model.addAttribute("books", list);
     		return "app/displayResults";
     }
+    
+    @RequestMapping(value="/test", method=RequestMethod.GET)
+    public String advSearch (@RequestParam(value="title") String searchString, 
+    		                     @RequestParam(value="cb_title", required=false) String titleCheck, Model model) {
+    		ArrayList<Book> list;
+    		System.out.println(titleCheck);
+    		
+//    		if (titleCheck) {
+//    			list = (ArrayList<Book>) bookService.booksByTitle(searchString);
+//    			model.addAttribute("books", list);
+//    			return "app/displayResults";
+//    		}
+//    		if (courseCheck) {
+//    			list = (ArrayList<Book>) bookService.booksByCourse(searchString);
+//    			model.addAttribute("books", list);
+//    			return "app/displayResults";
+//    		}
+    		return "app/displayResults";
+    }
+    
  }

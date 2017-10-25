@@ -25,5 +25,5 @@ public interface CourseService {
 	
 	public Course save(Course course);
 	
-	
+	public List<Course> coursesByDepartment(long depId);
 }
