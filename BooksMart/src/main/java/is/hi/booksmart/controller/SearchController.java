@@ -159,10 +159,11 @@ public class SearchController 	{
     }
     
     /**
-     * Use advanced search (unfinished).
+     * Use advanced search (unfinished?).
      * 
-     * @param searchString
-     * @param titleCheck
+     * @param title
+     * @param edition
+     * @param author
      * @param model
      * @return
      */
