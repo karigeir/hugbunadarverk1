@@ -32,6 +32,7 @@ public class Course {
 	@Column (name = "courseId")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
+	
 	private String courseNo;
 	private String name;
 	
@@ -53,6 +54,10 @@ public class Course {
 		this.courseNo = courseNo;
 		this.name = name;
 		this.department = department;
+	}
+	
+	public long getId() {
+		return id;
 	}
 	
 	public String getCourseNo() {

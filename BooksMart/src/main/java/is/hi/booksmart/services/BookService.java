@@ -27,5 +27,56 @@ public interface BookService {
 	 */
 	public List<Book> booksByTitle(String title);
 	
-	public List<Book> booksByCourse(String course);
+	/**
+	 * Return a list of books of given edition
+	 * 
+	 * @param edition
+	 * @return List of books of given edition
+	 */
+	public List<Book> booksByEdition(int edition);
+	
+	/**
+	 * Return a list of books written by author
+	 * 
+	 * @param author
+	 * @return List of books wirtten by author
+	 */
+	public List<Book> booksByAuthor(String author);
+	
+	/**
+	 * Return a list of books by title, edition and author.
+	 * 
+	 * @param title
+	 * @param edition
+	 * @param author
+	 * @return List of books.
+	 */
+	public List<Book> booksByTitleEditionAuthor(String title, int edition, String author);
+	
+	/**
+	 * Return a list of books by title and edition.
+	 * 
+	 * @param title
+	 * @param edition
+	 * @return List of books.
+	 */
+	public List<Book> booksByTitleEdition(String title, int edition);
+	
+	/**
+	 * Return a list of books by title and author.
+	 * 
+	 * @param title
+	 * @param author
+	 * @return List of books.
+	 */
+	public List<Book> booksByTitleAuthor(String title, String author);
+	
+	/**
+	 * Return a list of books by author and edition.
+	 * 
+	 * @param author
+	 * @param edition
+	 * @return List of books.
+	 */
+	public List<Book> booksByAuthorEdition(String author, int edition);
 }

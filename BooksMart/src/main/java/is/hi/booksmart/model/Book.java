@@ -16,7 +16,7 @@ import javax.persistence.Table;
  * @date September 2017
  * HBV501G Software Project 1
  * 
- * Implemenents the Book type.
+ * Implements the Book type.
  */
 @Entity
 @Table (name="book")

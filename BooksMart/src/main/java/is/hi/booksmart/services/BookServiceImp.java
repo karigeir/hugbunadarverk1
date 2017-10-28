@@ -30,8 +30,28 @@ public class BookServiceImp implements BookService {
 	}
 	
 	@Override
-	public List<Book> booksByCourse(String course) {
-		return bookRep.findByCourse(course);
+	public List<Book> booksByEdition(int edition) {
+		return bookRep.findByEdition(edition);
 	}
 	
+	@Override
+	public List<Book> booksByAuthor(String author) {
+		return bookRep.findByAuthor(author);
+	}
+	
+	@Override public List<Book> booksByTitleEditionAuthor(String title, int edition, String author) {
+		return bookRep.findByTitleEditionAuthor(title, edition, author);
+	}
+	
+	@Override public List<Book> booksByTitleEdition(String title, int edition) {
+		return bookRep.findByTitleEdition(title, edition);
+	}
+	
+	@Override public List<Book> booksByTitleAuthor(String title, String author) {
+		return bookRep.findByTitleAuthor(title, author);
+	}
+	
+	@Override public List<Book> booksByAuthorEdition(String author, int edition) {
+		return bookRep.findByAuthorEdition(author, edition);
+	}
 }

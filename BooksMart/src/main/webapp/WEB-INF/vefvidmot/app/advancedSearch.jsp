@@ -16,14 +16,14 @@
 
 		<form method="GET" action="/app/test">
 			<input name="title" type="text" placeholder="Title...">
-			<input name="edition" type="text" size=2 maxlength=2 placeholder="Ed.">
+			<input name="edition" type="number" min=1 max=99 placeholder="Ed.">
 			<input name="author" type="text" placeholder="Author...">
 			<input type="submit" value="Search"><br>
-			<select>
+			<!-- <select name="dd_school">
 				<c:forEach var="school" items="${schools}">
 					<option value="${school.getId()}">${school.getName()}</option>
 				</c:forEach>
-			</select>
+			</select>  -->
 		</form>
 		
 		<a href="/app/"><button>Back</button></a>
