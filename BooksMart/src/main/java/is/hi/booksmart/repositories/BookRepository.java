@@ -10,7 +10,8 @@ import is.hi.booksmart.model.Book;
 /**
  *
  * @author Kári Geir Gunnarsson 	<kgg5@hi.is>
- * @date 4.október 2017
+ * @author Sævar Ingi Sigurðsson <sis108@hi.is>
+ * @date október 2017
  * HBV501G Software Development 1
  * 
  * Repository for the Book model
@@ -28,7 +29,7 @@ public interface BookRepository extends JpaRepository<Book,Long>{
 	List<Book> findAll();
 	
 	/**
-	 * Add book to repository
+	 * Add book to database
 	 * 
 	 * @param book
 	 */
