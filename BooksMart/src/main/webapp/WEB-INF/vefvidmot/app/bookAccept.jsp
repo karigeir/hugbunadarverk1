@@ -9,12 +9,10 @@
 		<title>Book added</title>
 	</head>
 	<body>
-		<h1>${book.getTitle()} added to database.</h1>
-		<h2>${book.getAuthor()}</h2>
-		<h3>${book.getEdition()}</h3>
-		<h3>${book.getCourse().getName()}</h3>
-		<h3>${book.getCourse().getDepartment().getName()}</h3>
-		<h3>${book.getCourse().getDepartment().getSchool().getName()}</h3>
+		<h3>${book.getTitle()} successfully added to database.</h3>
+		<a href="/app/"><button>Go back to front page</button></a>
+		
+		
 
 	</body>
 </html>

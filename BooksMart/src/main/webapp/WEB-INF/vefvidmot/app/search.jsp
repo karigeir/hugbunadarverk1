@@ -5,8 +5,6 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-<html lang="en">
-
 <head>
 <title>BooksMart</title>
 </head>
@@ -22,7 +20,7 @@
 	<a href="./adv_search"><button>Advanced Search</button></a>
 
 	
-		<a href="./create_user"><button>Create User</button></a>
+		<h4>Need to sell a book? <a href="./create_user">Sign up</a></h4>
 	</form>
 </body>
 

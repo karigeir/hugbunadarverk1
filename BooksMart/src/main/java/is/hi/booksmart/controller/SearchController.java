@@ -147,7 +147,7 @@ public class SearchController 	{
     		model.addAttribute("user", a);
     		userService.save(a);
     		
-    		return "app/userAccept";
+    		return "app/addBook";
     }
     
     @RequestMapping(value="/results", method=RequestMethod.GET)

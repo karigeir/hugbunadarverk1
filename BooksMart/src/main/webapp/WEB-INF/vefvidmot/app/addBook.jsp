@@ -15,13 +15,14 @@
 		<form method="POST" action="/app/book_confirm">
 			Titill: <input name="title" type="text" placeholder="Title" required/><br>
 			Höfundur: <input name="author" type="text" placeholder="Author" required/><br>
-			Útgáfa: <input name="edition" type="text" placeholder="Edition" required/><br>
+			Útgáfa: <input name="edition" type="number" placeholder="Edition" required/><br>
 			Fag: <input name="course" type="text" placeholder="Course" required/><br>
 			Námsbraut: <input name="department" type="text" placeholder="Department" required/><br>
 			Skóli: <input name="school" type="text" placeholder="School" required/><br>
 			Email: <input name="email" type="text" placeholder="john@doe.is" required/><br>
 			<input type="submit" value="Confirm"/>
 		</form>
+		<a href="/app/"><button>Back</button></a>
 	
 	</body>
 </html>
