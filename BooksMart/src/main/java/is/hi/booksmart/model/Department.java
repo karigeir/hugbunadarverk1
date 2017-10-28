@@ -52,6 +52,10 @@ public class Department {
 		this.school = school;
 	}
 	
+	public long getId() {
+		return id;
+	}
+	
 	public String getName() {
 		return name;
 	}

@@ -8,8 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
-import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -48,16 +46,6 @@ public class SearchController 	{
 	CourseService courseService;
 	@Autowired
 	UserService userService;
-	
-    /**
-     * Demo (to be removed later).
-     * 
-     * @return
-     */
-    @RequestMapping("/page")
-    public String demoPage(){
-        return "app/demo";
-    }
     
     /**
      * Display search form.
@@ -69,11 +57,15 @@ public class SearchController 	{
     		return "app/search";
     }
     
+    /**
+     * Display advanced search form.
+     * 
+     * @param model
+     * @return
+     */
     @RequestMapping("/adv_search")
     public String advSearch(ModelMap model) {
     		ArrayList<School> schools = (ArrayList<School>) schoolService.allSchools();
-    		//ArrayList<Department> depts = (ArrayList<Department>) departmentService.departmentsBySchool();
-    		//ArrayList<Course> courses = (ArrayList<Course> courseService.coursesByDepartment(depId));
     		
     		model.addAttribute("schools", schools);
     		
@@ -142,7 +134,7 @@ public class SearchController 	{
        		                  @RequestParam(value="pw", required=true) String pw,
     		                  ModelMap model) {
 
-    		User a = new User(username, email, pw );
+    		User a = new User(username, email, pw);
     		userService.save(a);
     		model.addAttribute("user", a);
     		userService.save(a);
@@ -150,31 +142,62 @@ public class SearchController 	{
     		return "app/userAccept";
     }
     
+    /**
+     * Search for books by Title entered into form.
+     * 
+     * @param title
+     * @param model
+     * @return
+     */
     @RequestMapping(value="/results", method=RequestMethod.GET)
     public String booksByTitle (@RequestParam(value="title") String title, Model model) {
     		ArrayList<Book> list;
     		list = (ArrayList<Book>) bookService.booksByTitle(title);
+    		
     		model.addAttribute("books", list);
     		return "app/displayResults";
     }
     
-
+    /**
+     * Use advanced search (unfinished).
+     * 
+     * @param searchString
+     * @param titleCheck
+     * @param model
+     * @return
+     */
     @RequestMapping(value="/test", method=RequestMethod.GET)
-    public String advSearch (@RequestParam(value="title") String searchString, 
-    		                     @RequestParam(value="cb_title", required=false) String titleCheck, Model model) {
+    public String advSearch (@RequestParam(value="title", required=false) String title, 
+    		                     @RequestParam(value="edition", required=false) String edition,
+    		                     @RequestParam(value="author", required=false) String author, Model model) {
+    		System.out.println(title + ", " + edition + ", " + author);
     		ArrayList<Book> list;
-    		System.out.println(titleCheck);
+    		String nullStr = "";
     		
-//    		if (titleCheck) {
-//    			list = (ArrayList<Book>) bookService.booksByTitle(searchString);
-//    			model.addAttribute("books", list);
-//    			return "app/displayResults";
-//    		}
-//    		if (courseCheck) {
-//    			list = (ArrayList<Book>) bookService.booksByCourse(searchString);
-//    			model.addAttribute("books", list);
-//    			return "app/displayResults";
-//    		}
+    		int ed;
+    		if (edition == nullStr) ed = 0;
+    		else ed = Integer.parseInt(edition);
+    		
+    		if (title != nullStr && ed != 0 && author != nullStr) {
+    			list = (ArrayList<Book>) bookService.booksByTitleEditionAuthor(title, ed, author);
+    		} else if (title != nullStr && ed != 0) {
+    			list = (ArrayList<Book>) bookService.booksByTitleEdition(title, ed);
+    		} else if (title != nullStr && author != nullStr) {
+    			list = (ArrayList<Book>) bookService.booksByTitleAuthor(title, author);
+    		} else if (author != nullStr && ed != 0) {
+    			list = (ArrayList<Book>) bookService.booksByAuthorEdition(author, ed);
+    		} else if (title != nullStr) {
+    			list = (ArrayList<Book>) bookService.booksByTitle(title);
+    		} else if (ed != 0) {
+    			list = (ArrayList<Book>) bookService.booksByEdition(ed);
+    		} else if (author != nullStr) {
+    			list = (ArrayList<Book>) bookService.booksByAuthor(author);
+    		} else {
+    			list = (ArrayList<Book>) bookService.allBooks();
+    		}
+    		
+    		
+    		model.addAttribute("books", list);
     		return "app/displayResults";
     }
 

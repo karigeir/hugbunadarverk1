@@ -27,5 +27,23 @@ public interface BookService {
 	 */
 	public List<Book> booksByTitle(String title);
 	
-	public List<Book> booksByCourse(String course);
+	public List<Book> booksByEdition(int edition);
+	
+	public List<Book> booksByAuthor(String author);
+	
+	/**
+	 * Return a list of books using advanced search.
+	 * 
+	 * @param title
+	 * @param edition
+	 * @param author
+	 * @return List of books.
+	 */
+	public List<Book> booksByTitleEditionAuthor(String title, int edition, String author);
+	
+	public List<Book> booksByTitleEdition(String title, int edition);
+	
+	public List<Book> booksByTitleAuthor(String title, String author);
+	
+	public List<Book> booksByAuthorEdition(String author, int edition);
 }
