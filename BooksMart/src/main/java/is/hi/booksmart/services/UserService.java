@@ -21,4 +21,6 @@ public interface UserService {
 	 * @return
 	 */
 	public User save(User book);
+	
+	public User getUserbyUsername(String username);
 }

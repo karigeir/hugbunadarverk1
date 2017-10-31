@@ -25,4 +25,9 @@ public class UserServiceImp implements UserService{
 	public User save(User user) {
 		return userRep.save(user);
 	}
+	
+	@Override
+	public User getUserbyUsername(String username) {
+		return userRep.getUserbyUsername(username);
+	}
 }

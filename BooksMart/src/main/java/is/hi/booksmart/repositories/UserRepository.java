@@ -2,6 +2,10 @@ package is.hi.booksmart.repositories;
 
 import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
+
+import is.hi.booksmart.model.Book;
 import is.hi.booksmart.model.User;
 
 /**
@@ -27,5 +31,8 @@ public interface UserRepository extends JpaRepository<User, Long> {
 	 * @param book
 	 */
 	User save (User user);
+	
+	@Query(value = "SELECT u FROM User u WHERE u.username=:username)")
+	User getUserbyUsername(@Param("username")String username);
 	
 }
