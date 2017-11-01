@@ -43,7 +43,7 @@ public class LoginController {
 			model.addAttribute("message", "Logged out from JournalDEV successfully.");
 		}
 
-//		model.addAttribute("loginPage");
+		model.addAttribute("loginPage");
 		return "app/login";
 	}
 	
