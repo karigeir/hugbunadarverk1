@@ -13,6 +13,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.hamcrest.Matchers.containsString;
 /**
@@ -29,20 +30,20 @@ import static org.hamcrest.Matchers.containsString;
 @AutoConfigureMockMvc       // Spring MockMvc - allt "context"-ið keyrt upp 
 public class ApplicationTest {
     
-        // Þjónninn (Tomcat) ekki keyrður upp 
+        // Tomcat server ekki keyrður upp
         @Autowired
         private MockMvc mockMvc;
          
         /**
-         * Aðferð til að athuga hvort virkar að senda HttpRequest á /nyrKennari
-         * og fá til baka nyrKennari.html síðuna sem inniheldur strenginn Karl1
-         * athath þetta virkar ekki :( getum líka gert model frekar
+         * Aðferð til að athuga hvort virkar að senda HttpRequest á /app/
+         * og fá til baka að nafnið á view fyrir /app/ sé "app/search".
          */
 	@Test 
-        public void createUserSkilarCreate() throws Exception {
-        this.mockMvc.perform(get("/app/create_user"))                
-                .andDo(print()).andExpect(status().isOk())
-                .andExpect(content().string(containsString("Create")));
+        public void createUserReturnsCreate() throws Exception {
+        this.mockMvc.perform(get("/app/"))                
+                .andDo(print())
+                .andExpect(status().isOk())
+                .andExpect(view().name("app/search"));
     }
 
 }

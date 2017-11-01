@@ -47,19 +47,28 @@ public class BookServiceImp implements BookService {
 		return bookRep.findByAuthor(author);
 	}
 	
-	@Override public List<Book> booksByTitleEditionAuthor(String title, int edition, String author) {
+	@Override 
+	public List<Book> booksByTitleEditionAuthor(String title, int edition, String author) {
 		return bookRep.findByTitleEditionAuthor(title, edition, author);
 	}
 	
-	@Override public List<Book> booksByTitleEdition(String title, int edition) {
+	@Override 
+	public List<Book> booksByTitleEdition(String title, int edition) {
 		return bookRep.findByTitleEdition(title, edition);
 	}
 	
-	@Override public List<Book> booksByTitleAuthor(String title, String author) {
+	@Override 
+	public List<Book> booksByTitleAuthor(String title, String author) {
 		return bookRep.findByTitleAuthor(title, author);
 	}
 	
-	@Override public List<Book> booksByAuthorEdition(String author, int edition) {
+	@Override 
+	public List<Book> booksByAuthorEdition(String author, int edition) {
 		return bookRep.findByAuthorEdition(author, edition);
+	}
+	
+	@Override
+	public boolean isAlive() {
+		return true;
 	}
 }

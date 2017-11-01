@@ -34,8 +34,9 @@ import is.hi.booksmart.services.UserService;
  *       instruction.
  **/
 @Controller
-@RequestMapping("/app") // Request Mapping so that every site starts with /app.
-public class SearchController {
+@RequestMapping("/app/") // Request Mapping so that every site starts with /app. 
+public class SearchController 	{
+	
 
 	// Connection to service class(es).
 	@Autowired
@@ -66,11 +67,7 @@ public class SearchController {
      * @return
      */
     @RequestMapping("/adv_search")
-    public String advSearch(ModelMap model) {
-    		ArrayList<School> schools = (ArrayList<School>) schoolService.allSchools();
-    		
-    		model.addAttribute("schools", schools);
-    		
+    public String advSearch() {
     		return "app/advancedSearch";
     }
     
@@ -213,15 +210,33 @@ public class SearchController {
 
    /**
     * Copy seller email to clipboard.
-    *  
+    * 
+    * @param email 
     */
     @RequestMapping(value="/results", method=RequestMethod.POST)
-    public static void copyToClipboard(@RequestParam(value="contact_email")String email) {
+    public void copyToClipboard(@RequestParam(value="contact_email")String email) {
     		System.out.println(email);
-    		Toolkit toolkit = Toolkit.getDefaultToolkit();
-    		Clipboard clipboard = toolkit.getSystemClipboard();
+    		System.setProperty("java.awt.headless", "true");
     		StringSelection strSel = new StringSelection(email);
+    		Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
     		
     		clipboard.setContents(strSel, null);
     }
+    
+    /**
+     * Test function.
+     * 
+     * @param model
+     * @return
+     */
+    @RequestMapping(value="/lifir", method=RequestMethod.GET)
+    public String lifir(Model model) {
+    		if (bookService.isAlive()) {
+    			return "app/search";
+    		} else {
+    			return "app/login";
+    		}
+    		
+    }
+     
  }

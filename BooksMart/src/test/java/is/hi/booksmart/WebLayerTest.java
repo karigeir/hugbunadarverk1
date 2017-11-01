@@ -3,6 +3,11 @@ package is.hi.booksmart;
 
 import is.hi.booksmart.controller.SearchController;
 import is.hi.booksmart.services.BookService;
+import is.hi.booksmart.services.CourseService;
+import is.hi.booksmart.services.DepartmentService;
+import is.hi.booksmart.services.SchoolService;
+import is.hi.booksmart.services.UserService;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +18,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.hamcrest.Matchers.containsString;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
@@ -27,7 +33,7 @@ import org.springframework.context.annotation.Bean;
  * Prófunarklasi sem framkvæmir prófanir á weblayer og notar WebMvcTest 
 */
 @RunWith(SpringRunner.class)
-// Sleppum hér @SpringBootTest
+
 /**
  *  Aðeins veflagið er keyrt upp en ekki allur "context"-inn
  *  Getum beðið um að keyra bara upp SearchController klasann 
@@ -42,15 +48,24 @@ public class WebLayerTest {
         
         @MockBean
         BookService bookService;
+        @MockBean
+        SchoolService schoolService;
+        @MockBean
+        CourseService courseService;
+        @MockBean
+        DepartmentService deptService;
+        @MockBean
+        UserService userkService;
         /**
          * Aðferð til að athuga hvort virkar að senda HttpRequest á listiKennari
          * og fá til baka listiKennara.html síðuna 
          */
 	@Test 
-        public void createUserSkilarCreate() throws Exception {
-        this.mockMvc.perform(get("/app/create_user"))                
-                .andDo(print()).andExpect(status().isOk())
-                .andExpect(content().string(containsString("Create")));
+        public void createUserReturnsCreate() throws Exception {
+        this.mockMvc.perform(get("/app/"))                
+                .andDo(print())
+                .andExpect(status().isOk())
+                .andExpect(view().name("app/search"));
     }
 
 }

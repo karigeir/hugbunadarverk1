@@ -38,7 +38,7 @@ public class HttpRequestTest {
          */
 	@Test
         public void heimaSkilarSearch() throws Exception {
-        assertThat(this.restTemplate.getForObject("http://localhost:" + port + "/app",
+        assertThat(this.restTemplate.getForObject("http://localhost:" + port + "/app/",
                 String.class)).contains("Search");
     }
 

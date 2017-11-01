@@ -87,4 +87,10 @@ public interface BookService {
 	 * @return List of books.
 	 */
 	public List<Book> booksByAuthorEdition(String author, int edition);
+	
+	/**
+	 * For testing
+	 * 
+	 */
+	public boolean isAlive();
 }

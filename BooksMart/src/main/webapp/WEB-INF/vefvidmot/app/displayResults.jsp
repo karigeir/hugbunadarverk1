@@ -36,8 +36,8 @@
 							<td>${book.getCourse().getDepartment().getSchool().getName()}</td>
 							<td>
 								<form method="POST" action="/app/results">
-								<input name="contact_email" type="text" value="${book.getUserContact()}" readonly/>
-								<input name="email_copy" type="submit" value="Copy"/>
+									<input name="contact_email" type="text" value="${book.getUserContact()}" readonly/>
+									<input name="email_copy" type="submit" value="Copy"/>
 								</form>
 								
 							</td>
