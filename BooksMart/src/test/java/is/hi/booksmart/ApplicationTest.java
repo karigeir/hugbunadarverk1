@@ -15,6 +15,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.hamcrest.Matchers.containsString;
 /**
  *
@@ -39,11 +40,12 @@ public class ApplicationTest {
          * og fá til baka að nafnið á view fyrir /app/ sé "app/search".
          */
 	@Test 
-        public void createUserReturnsCreate() throws Exception {
+       	public void appReturnsSearch() throws Exception {
         this.mockMvc.perform(get("/app/"))                
                 .andDo(print())
                 .andExpect(status().isOk())
                 .andExpect(view().name("app/search"));
+
     }
 
 }
