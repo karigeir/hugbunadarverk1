@@ -173,3 +173,63 @@ main {
 .footerhr {
   border-color: #fff;
 }
+
+/**
+ * ------------------
+ * advancedSearch CSS
+ * ------------------
+**/
+
+.header--AdvSearch {
+	margin-top: 200px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 100%;
+	padding: 0;
+	border: none;
+	font-family: Merriweather, georgia, serif;
+	font-size: 1.5rem;
+	margin-bottom: 25px;
+}
+
+
+/**
+ * ---------
+ * login CSS
+ * ---------
+**/
+
+.header--login {
+	margin-top: 200px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 100%;
+	padding: 0;
+	border: none;
+	font-family: Merriweather, georgia, serif;
+	font-size: 1.5rem;
+	margin-bottom: 25px;
+}
+
+
+/**
+ * ---------
+ * createUser CSS
+ * ---------
+**/
+
+.header--createUser {
+	margin-top: 200px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 100%;
+	padding: 0;
+	border: none;
+	font-family: Merriweather, georgia, serif;
+	font-size: 1.5rem;
+	margin-bottom: 25px;
+}
+

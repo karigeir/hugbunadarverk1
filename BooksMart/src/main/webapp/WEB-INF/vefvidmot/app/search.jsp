@@ -21,7 +21,7 @@
   <div id="header">
     <nav class="menu">
       <div class="menuleft">
-        <a class="menutext" href="">BooksMart</a>
+        <a class="menutext" href="/app/">BooksMart</a>
       </div>
       <div class="menuright">
         <a class="menubutton" href="./adv_search">Advanced Search</a>
@@ -47,12 +47,13 @@
     </main>
   </div>
   <div id="footer">
-    <footer class="footer">
-      <hr class="footerhr">
+    <div footer class="footer">
+      <hr class="footerhr"> </hr>
       <div class="footercontent">
         <p class="footertext">© BooksMart 2017</p>
       </div>
-    </footer>
+      </footer>
+    </div>
   </div>
 </body>
 
