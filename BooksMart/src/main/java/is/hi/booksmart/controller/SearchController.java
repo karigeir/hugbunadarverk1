@@ -135,13 +135,20 @@ public class SearchController {
     		                  @RequestParam(value="email", required=true) String email,
        		                  @RequestParam(value="pw", required=true) String pw,
     		                  ModelMap model) {
-
+    		
+    		User user = userService.getUserbyUsername(username);
+    		
+    		if (user != null) {
+    			model.addAttribute("error", "Username already exists!");
+    			return "app/createUser";
+    		}
+    		else {
     		User a = new User(username, email, pw);
     		userService.save(a);
     		model.addAttribute("user", a);
-    		userService.save(a);
     		
     		return "app/addBook";
+    		}
     }
     
     /**

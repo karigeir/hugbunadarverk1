@@ -7,6 +7,14 @@ import org.springframework.stereotype.Service;
 import is.hi.booksmart.model.Course;
 import is.hi.booksmart.repositories.CourseRepository;
 
+/**
+ * 
+ * @author Kári Geir Gunnarsson 	<kgg5@hi.is>
+ * @date 4.október 2017
+ * HBV501G Software Development 1
+ *  
+ */
+
 @Service
 public class CourseServiceImp implements CourseService {
 	

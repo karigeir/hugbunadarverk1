@@ -9,6 +9,14 @@ import is.hi.booksmart.model.Book;
 import is.hi.booksmart.model.User;
 import is.hi.booksmart.repositories.UserRepository;
 
+/**
+ * 
+ * @author Kári Geir Gunnarsson 	<kgg5@hi.is>
+ * @date 4.október 2017
+ * HBV501G Software Development 1
+ *  
+ */
+
 @Service
 public class UserServiceImp implements UserService{
 	
