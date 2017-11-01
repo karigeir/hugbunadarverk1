@@ -1,5 +1,8 @@
 package is.hi.booksmart.controller;
 
+import java.awt.Toolkit;
+import java.awt.datatransfer.Clipboard;
+import java.awt.datatransfer.StringSelection;
 import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
@@ -202,5 +205,17 @@ public class SearchController 	{
     		return "app/displayResults";
     }
 
-    
+   /**
+    * Copy seller email to clipboard.
+    *  
+    */
+    @RequestMapping(value="/results", method=RequestMethod.POST)
+    public static void copyToClipboard(@RequestParam(value="contact_email")String email) {
+    		System.out.println(email);
+    		Toolkit toolkit = Toolkit.getDefaultToolkit();
+    		Clipboard clipboard = toolkit.getSystemClipboard();
+    		StringSelection strSel = new StringSelection(email);
+    		
+    		clipboard.setContents(strSel, null);
+    }
  }

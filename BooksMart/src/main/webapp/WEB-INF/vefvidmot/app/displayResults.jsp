@@ -4,7 +4,7 @@
 
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ page isELIgnored="false" %>
+<%@ page isELIgnored="false"%>
 
 <html lang="en">
 
@@ -34,7 +34,13 @@
 							<td>${book.getCourse().getName()}</td>
 							<td>${book.getCourse().getDepartment().getName()}</td>
 							<td>${book.getCourse().getDepartment().getSchool().getName()}</td>
-							<td>${book.getUserContact()}</td>
+							<td>
+								<form method="POST" action="/app/results">
+								<input name="contact_email" type="text" value="${book.getUserContact()}" readonly/>
+								<input name="email_copy" type="submit" value="Copy"/>
+								</form>
+								
+							</td>
 						</tr>
 					</c:forEach>
 				</table>
