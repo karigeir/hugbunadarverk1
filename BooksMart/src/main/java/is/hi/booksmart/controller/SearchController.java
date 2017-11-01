@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-
 import is.hi.booksmart.model.Book;
 import is.hi.booksmart.model.Department;
 import is.hi.booksmart.model.School;
@@ -29,15 +28,15 @@ import is.hi.booksmart.services.UserService;
 
 /**
  * @author Sævar Ingi Sigurðsson <sis108@hi.is>
- * @date October 2017
- * HBV501G Software Project 1
+ * @date October 2017 HBV501G Software Project 1
  * 
- * Controller that dictates what is done when the user or UI sends an instruction.
-**/
+ *       Controller that dictates what is done when the user or UI sends an
+ *       instruction.
+ **/
 @Controller
-@RequestMapping("/app") // Request Mapping so that every site starts with /app. 
-public class SearchController 	{
-	
+@RequestMapping("/app") // Request Mapping so that every site starts with /app.
+public class SearchController {
+
 	// Connection to service class(es).
 	@Autowired
 	BookService bookService;

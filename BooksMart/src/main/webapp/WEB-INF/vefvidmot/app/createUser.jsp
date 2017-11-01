@@ -14,7 +14,10 @@
 	<body>
 
 		<h1>Create your user</h1>
-
+		
+		<c:if test="${not empty error}"><div>${error}</div></c:if>
+		<c:if test="${not empty message}"><div>${message}</div></c:if>
+		
 		<form method="POST" action="/app/user_confirm">
 			Username: <input name="username" type="text" placeholder="Joe Doeson" required/><br>
 			Email: <input name="email" type="email" placeholder="john@doe.is" required/><br>

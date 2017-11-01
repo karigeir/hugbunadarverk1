@@ -70,6 +70,6 @@ public class LoginController {
 		}
 
 //		model.addAttribute("loginPage");
-		return "app/search";
+		return "app/userInventory";
 	}
 }
