@@ -35,11 +35,8 @@
 							<td>${book.getCourse().getDepartment().getName()}</td>
 							<td>${book.getCourse().getDepartment().getSchool().getName()}</td>
 							<td>
-								<form method="POST" action="/app/results">
-								<input name="contact_email" type="text" value="${book.getUserContact()}" readonly/>
-								<input name="email_copy" type="submit" value="Copy"/>
-								</form>
-								
+								<input id="contact_email" type="text" value="${book.getUserContact()}" readonly/>
+								<button onclick="copyEmail()">Copy</button>
 							</td>
 						</tr>
 					</c:forEach>
@@ -49,6 +46,15 @@
 				<h3>No books found.</h3>	
 			</c:otherwise>
 		</c:choose>
+		
+		<script>
+			function copyEmail() {
+  				var copyText = document.getElementById("contact_email");
+  				copyText.select();
+  				document.execCommand("Copy");
+  				alert("Copied the text: " + copyText.value);
+			}
+		</script>
 	</body>
 
 </html>

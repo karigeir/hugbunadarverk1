@@ -207,21 +207,6 @@ public class SearchController 	{
     		model.addAttribute("books", list);
     		return "app/displayResults";
     }
-
-   /**
-    * Copy seller email to clipboard.
-    * 
-    * @param email 
-    */
-    @RequestMapping(value="/results", method=RequestMethod.POST)
-    public void copyToClipboard(@RequestParam(value="contact_email")String email) {
-    		System.out.println(email);
-    		System.setProperty("java.awt.headless", "true");
-    		StringSelection strSel = new StringSelection(email);
-    		Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
-    		
-    		clipboard.setContents(strSel, null);
-    }
     
     /**
      * Test function.
