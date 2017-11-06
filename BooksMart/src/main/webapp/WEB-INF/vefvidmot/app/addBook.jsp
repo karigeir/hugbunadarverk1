@@ -19,7 +19,7 @@
 			Fag: <input name="course" type="text" placeholder="Course" required/><br>
 			Námsbraut: <input name="department" type="text" placeholder="Department" required/><br>
 			Skóli: <input name="school" type="text" placeholder="School" required/><br>
-			Email: <input name="email" type="text" placeholder="john@doe.is" required/><br>
+			User: <input name="username" type="text" placeholder="Username" required/><br>
 			<input type="submit" value="Confirm"/>
 		</form>
 		<a href="/app/"><button>Back</button></a>

@@ -37,8 +37,8 @@
 						<thead>
 							<tr>
 								<th>Title</th>
-								<th>Author</th>
 								<th>Ed.</th>
+								<th>Author</th>
 								<th>Course</th>
 								<th>Dept.</th>
 								<th>School</th>
@@ -48,14 +48,14 @@
 						<c:forEach var = "book" items="${books}">
 							<tr>
 								<td>${book.getTitle()}</td>
-								<td>${book.getAuthor()}</td>
 								<td>${book.getEdition()}</td>
+								<td>${book.getAuthor()}</td>
 								<td>${book.getCourse().getName()}</td>
 								<td>${book.getCourse().getDepartment().getName()}</td>
 								<td>${book.getCourse().getDepartment().getSchool().getName()}</td>
 								<td>
-									<input id="contact_email" type="text" value="${book.getUserContact()}" readonly/>
-									<button onclick="copyEmail()">Copy</button>
+									<input id="${book.getId()}" type="text" value="${book.getUser().getEmail()}" readonly/>
+									<button onclick="copyEmail(${book.getId()})">Copy</button>
 								</td>
 							</tr>
 						</c:forEach>
@@ -68,11 +68,11 @@
 		</div>
 		
 		<script>
-			function copyEmail() {
-  				var copyText = document.getElementById("contact_email");
+			function copyEmail(id) {
+  				var copyText = document.getElementById(id);
   				copyText.select();
   				document.execCommand("Copy");
-  				alert("Copied the text: " + copyText.value);
+  				alert("Copied!");
 			}
 		</script>
 	</body>

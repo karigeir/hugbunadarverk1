@@ -30,7 +30,10 @@ public class Book {
 	private String title;
 	private String author;
 	private int edition;
-	private String userContact;
+	
+	@ManyToOne(fetch = FetchType.LAZY, optional = false)
+	@JoinColumn(name = "username")
+	private User user;
 	
 	@ManyToOne(fetch = FetchType.LAZY, optional = false)
 	@JoinColumn(name = "courseId")
@@ -51,13 +54,17 @@ public class Book {
 	 * @param course - Course that Book is associated with.
 	 * @param user - User who posted Book up for sale.
 	 */
-	public Book(String title, String author, int edition, Course course, String userContact) {
+	public Book(String title, String author, int edition, Course course, User user) {
 		super();
 		this.title = title;
 		this.author = author;
 		this.edition = edition;
 		this.course = course;
-		this.userContact = userContact;
+		this.user = user;
+	}
+	
+	public long getId() {
+		return id;
 	}
 	
 	/**
@@ -132,19 +139,19 @@ public class Book {
 	/**
 	 * Getter for userContact attribute.
 	 * 
-	 * @return userContact - Contact information of the user selling the book.
+	 * @return user - The user selling the book.
 	 */
-	public String getUserContact() {
-		return userContact;
+	public User getUser() {
+		return user;
 	}
 
 	/**
 	 * Setter for userContact.
 	 * 
-	 * @param userContact - Contact information of the user selling the book.
+	 * @param user - The user selling the book.
 	 */
-	public void setUserContact(String userContact) {
-		this.userContact = userContact;
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 	/**

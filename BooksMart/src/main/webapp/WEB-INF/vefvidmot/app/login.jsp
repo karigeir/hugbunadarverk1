@@ -41,12 +41,11 @@
 				<div>${message}</div>
 			</c:if>
 
-			<form method="POST" action="/app/confirm">
-				Username: <input name="username" type="text"
-					placeholder="Joe Doeson" required /><br> Password: <input
-					name="pw" type="password" required /><br> <input
-					type="submit" value="Confirm" /> <input type="hidden"
-					name="${_csrf.parameterName}" value="${_csrf.token}" />
+			<form method="GET" action="/app/homepage">
+				Username: <input name="username" type="text" placeholder="Joe Doeson" required /><br> 
+				Password: <input name="pw" type="password" required /><br> 
+				<input type="submit" value="Confirm" /> <input type="hidden" 
+					   name="${_csrf.parameterName}" value="${_csrf.token}" />
 			</form>
 			<a href="/app/"><button>Back</button></a>
 		</div>

@@ -104,17 +104,18 @@ public class SearchController 	{
     		                  @RequestParam(value="course", required=true) String course,
     		                  @RequestParam(value="department", required=true) String department,
     		                  @RequestParam(value="school", required=true) String school, 
-    		                  @RequestParam(value="email", required=true) String email,
+    		                  @RequestParam(value="username", required=true) String username,
     		                  ModelMap model) {
 
     		int e = Integer.parseInt(edition);
+    		User user = userService.getUserbyUsername(username);
     		School s = new School(school, "HÍ");
     		schoolService.save(s);
     		Department d = new Department(department, s);
     		departmentService.save(d);
     		Course c = new Course("ASDF", course, d);
     		courseService.save(c);
-    		Book b = new Book(title, author, e, c, email);
+    		Book b = new Book(title, author, e, c, user);
     		
     		model.addAttribute("book", b);
     		bookService.save(b);
@@ -206,6 +207,38 @@ public class SearchController 	{
     		
     		model.addAttribute("books", list);
     		return "app/displayResults";
+    }
+    
+    /**
+     * Display User homepage.
+     */
+    @RequestMapping(value="/homepage", method=RequestMethod.GET)
+    public String homepage(@RequestParam(value="username") String username, Model model) {
+    		model.addAttribute("user", username);
+    		
+    		ArrayList<Book> books = (ArrayList<Book>) bookService.booksByUsername(username);
+    		model.addAttribute("books", books);
+    		
+    		return "app/userInventory";
+    }
+    
+    /**
+     * Delete book from database.
+     */
+    @RequestMapping(value="/kek", method=RequestMethod.GET)
+    public String deleteBook(@RequestParam(value="book_id") String id,
+    		                     @RequestParam(value="username") String username, Model model) {
+    		long idNo = Long.parseLong(id);
+    		System.out.println(username + " " + idNo);
+    		model.addAttribute("user", username);
+    		
+    		Book book = bookService.bookById(idNo);
+    		bookService.delete(book);
+    		
+    		ArrayList<Book> books = (ArrayList<Book>) bookService.booksByUsername(username);
+    		model.addAttribute("books", books);
+    		
+    		return "app/userInventory";
     }
     
     /**

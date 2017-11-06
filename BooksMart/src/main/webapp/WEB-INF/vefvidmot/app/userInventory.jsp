@@ -18,13 +18,30 @@
 					<thead>
 						<tr>
 							<th>Title</th>
-							<th>Contact info.</th>
+							<th>Ed.</th>
+							<th>Author</th>
+							<th>Course</th>
+							<th>Department</th>
+							<th>School</th>
+							<th>Already sold?</th>
 						</tr>
 					</thead>
 					<c:forEach var = "book" items="${books}">
 						<tr>
 							<td>${book.getTitle()}</td>
-							<td>${book.getUserContact()}</td>
+							<td>${book.getEdition()}</td>
+							<td>${book.getAuthor()}</td>
+							<td>${book.getCourse().getName()}</td>
+							<td>${book.getCourse().getDepartment().getName()}</td>
+							<td>${book.getCourse().getDepartment().getSchool().getName()}</td>
+							<td>
+								<form method=GET action="/app/kek" >
+									<input name="username" type="hidden" value="${user}"/>
+									<input name="book_id" type="hidden" value="${book.getId()}" readonly/>
+									<input type="submit" value="Delete book"/>
+								</form>
+							</td>
+							
 						</tr>
 					</c:forEach>
 				</table>

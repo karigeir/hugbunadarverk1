@@ -1,10 +1,20 @@
 package is.hi.booksmart.model;
 
+import static org.mockito.Mockito.RETURNS_DEEP_STUBS;
+
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -12,13 +22,12 @@ import javax.persistence.Table;
 public class User {
 	
 	@Id
-	@Column (name = "userId")
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id;
-	
 	private String username;
 	private String email;
 	private String pw;
+	
+	@OneToMany(mappedBy="user", fetch=FetchType.LAZY, cascade=CascadeType.ALL, orphanRemoval=true)
+	private Set<Book> books = new HashSet<Book>();
 	
 	/**
 	 * Default constructor.

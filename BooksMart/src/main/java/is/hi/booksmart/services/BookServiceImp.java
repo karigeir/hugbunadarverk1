@@ -31,6 +31,16 @@ public class BookServiceImp implements BookService {
 	public Book save(Book book) {
 		return bookRep.save(book);
 	}
+	
+	@Override
+	public void delete(Book book) {
+		bookRep.delete(book);
+	}
+	
+	@Override
+	public Book bookById(long id) {
+		return bookRep.findById(id);
+	}
 
 	@Override
 	public List<Book> booksByTitle(String title) {
@@ -65,6 +75,11 @@ public class BookServiceImp implements BookService {
 	@Override 
 	public List<Book> booksByAuthorEdition(String author, int edition) {
 		return bookRep.findByAuthorEdition(author, edition);
+	}
+	
+	@Override
+	public List<Book> booksByUsername(String username) {
+		return bookRep.findByUsername(username);
 	}
 	
 	@Override
