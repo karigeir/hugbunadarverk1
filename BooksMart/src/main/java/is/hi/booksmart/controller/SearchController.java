@@ -6,6 +6,7 @@ import java.awt.datatransfer.StringSelection;
 import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -28,6 +29,7 @@ import is.hi.booksmart.services.UserService;
 
 /**
  * @author Sævar Ingi Sigurðsson <sis108@hi.is>
+ * @author Kári Geir Gunnarsson <kgg5@hi.is>
  * @date October 2017 HBV501G Software Project 1
  * 
  *       Controller that dictates what is done when the user or UI sends an
@@ -56,8 +58,10 @@ public class SearchController 	{
      * @return
      */
     @RequestMapping("")
-    public String search() {
+    public String search(HttpSession session)  {
+    	System.out.println(session.getAttribute("myUser"));
     		return "app/search";
+    		
     }
     
     /**
@@ -98,15 +102,21 @@ public class SearchController 	{
      * @return
      */
     @RequestMapping(value = "/book_confirm", method = RequestMethod.POST)
-    public String addBook(@RequestParam(value="title", required=true) String title,
+    public String addBook(HttpSession session, 
+    						  @RequestParam(value="title", required=true) String title,
     		                  @RequestParam(value="author", required=true) String author,
     		                  @RequestParam(value="edition", required=true) String edition,
     		                  @RequestParam(value="course", required=true) String course,
     		                  @RequestParam(value="department", required=true) String department,
-    		                  @RequestParam(value="school", required=true) String school, 
-    		                  @RequestParam(value="email", required=true) String email,
+    		                  @RequestParam(value="school", required=true) String school,
     		                  ModelMap model) {
-
+    		
+    		User user = (User) session.getAttribute("myUser");
+    		
+    		if (user == null) {
+    			return "app/forbidden";
+    		}
+    	
     		int e = Integer.parseInt(edition);
     		School s = new School(school, "HÍ");
     		schoolService.save(s);
@@ -114,7 +124,7 @@ public class SearchController 	{
     		departmentService.save(d);
     		Course c = new Course("ASDF", course, d);
     		courseService.save(c);
-    		Book b = new Book(title, author, e, c, email);
+    		Book b = new Book(title, author, e, c, user.getEmail());
     		
     		model.addAttribute("book", b);
     		bookService.save(b);
@@ -128,15 +138,22 @@ public class SearchController 	{
      * @return
      */
     @RequestMapping(value = "/user_confirm", method = RequestMethod.POST)
-    public String createUser(@RequestParam(value="username", required=true) String username, 
+    public String createUser(HttpSession session,
+    						  @RequestParam(value="username", required=true) String username, 
     		                  @RequestParam(value="email", required=true) String email,
        		                  @RequestParam(value="pw", required=true) String pw,
     		                  ModelMap model) {
     		
     		User user = userService.getUserbyUsername(username);
+    		User userEmail = userService.getUserByEmail(email);
     		
     		if (user != null) {
     			model.addAttribute("error", "Username already exists!");
+    			return "app/createUser";
+    		}
+    		
+    		else if (userEmail != null) {
+    			model.addAttribute("error", "Email is already taken!");
     			return "app/createUser";
     		}
     		else {
@@ -144,7 +161,9 @@ public class SearchController 	{
     		userService.save(a);
     		model.addAttribute("user", a);
     		
-    		return "app/addBook";
+    		session.setAttribute("myUser", a);
+    		
+    		return "redirect:./";
     		}
     }
     
@@ -164,6 +183,56 @@ public class SearchController 	{
     		return "app/displayResults";
     }
     
+    
+    /**
+     * Get books by user displayed in his inventory
+    */
+    @RequestMapping(value="/userInventory", method=RequestMethod.GET)
+    public String booksOwnedByUser (HttpSession session, Model model) {
+    	
+    		ArrayList<Book> list;
+    		User user = (User) session.getAttribute("myUser");
+    		
+    		if (user == null) {
+    			return "app/forbidden";
+    		}
+    		
+    		list = (ArrayList<Book>) bookService.booksByEmail(user.getEmail());
+    		
+    		model.addAttribute("userBooks", list);
+    		return "app/userInventory";
+    }
+    
+    /**
+     * Delete book from database.
+    */
+    @RequestMapping(value="/deletion", method=RequestMethod.GET)
+    public String deleteBook (HttpSession session, Model model, 
+    						   @RequestParam(value="book_id") String id) { 
+    		
+    		ArrayList<Book> list;
+    		User user = (User) session.getAttribute("myUser");
+    		
+    		if (user == null) {
+    			return "app/forbidden";
+    		}
+        	
+    		long idNo = Long.parseLong(id);
+        	System.out.println(user.getEmail() + " " + idNo);
+        	
+        	model.addAttribute("user", user.getEmail());
+        		
+        	Book book = bookService.bookById(idNo);
+        	bookService.delete(book);
+        		
+        	list = (ArrayList<Book>) bookService.booksByEmail(user.getEmail());
+        	
+        	model.addAttribute("userBooks", list);
+        	return "app/userInventory";
+        }
+        
+ 
+	
     /**
      * Use advanced search (unfinished?).
      * 
@@ -223,5 +292,7 @@ public class SearchController 	{
     		}
     		
     }
+    
+    
      
  }

@@ -1,4 +1,5 @@
 <!-- @author Sævar Ingi Sigurðsson <sis108@hi.is> -->
+<!-- @author Kári Geir Gunnarsson <kgg5@hi.is> -->
 <!-- .jsp skrá sem containing HTML for website with URL "../demo/spyrjaNotanda" (see DemoController) -->
 <!DOCTYPE html>
 
@@ -19,20 +20,18 @@
 </head>
 <body>
 	<div id="header">
-		<nav class="menu">
-			<div class="menuleft">
-				<a class="menutext" href="/app/">BooksMart</a>
-			</div>
-			<div class="menuright">
-				<a class="menubutton" href="./adv_search">Advanced Search</a> <a
-					class="menubutton" href="./login">Login</a>
-			</div>
-		</nav>
+		 <%@ include file = "header.jsp" %>
 	</div>
 	<div id="content">
 		<main>
 		<div class="header--createUser">
-			<h1>Create your user</h1>
+			<h1>Sign up</h1>
+			<c:if test="${not empty error}">
+				<div>${error}</div>
+			</c:if>
+			<c:if test="${not empty message}">
+				<div>${message}</div>
+			</c:if>
 		</div>
 		<div>
 			<form method="POST" action="/app/user_confirm">
@@ -47,14 +46,7 @@
 		</main>
 	</div>
 	<div id="footer">
-		<div footer class="footer">
-			<hr class="footerhr">
-			</hr>
-			<div class="footercontent">
-				<p class="footertext">© BooksMart 2017</p>
-			</div>
-			</footer>
-		</div>
+		<%@ include file = "footer.jsp" %>
 	</div>
 </body>
 

@@ -31,7 +31,14 @@ public class BookServiceImp implements BookService {
 	public Book save(Book book) {
 		return bookRep.save(book);
 	}
-
+	@Override
+	public void delete(Book book) {
+			bookRep.delete(book);
+	}
+	@Override
+	public Book bookById(long id) {
+	 	return bookRep.findById(id);
+	}
 	@Override
 	public List<Book> booksByTitle(String title) {
 		return bookRep.findByTitle(title);
@@ -70,5 +77,10 @@ public class BookServiceImp implements BookService {
 	@Override
 	public boolean isAlive() {
 		return true;
+	}
+
+	@Override
+	public List<Book> booksByEmail(String user_contact) {
+		return bookRep.findByEmail(user_contact);
 	}
 }

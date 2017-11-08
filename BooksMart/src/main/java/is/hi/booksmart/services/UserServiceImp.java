@@ -38,4 +38,9 @@ public class UserServiceImp implements UserService{
 	public User getUserbyUsername(String username) {
 		return userRep.getUserbyUsername(username);
 	}
+	
+	@Override
+	public User getUserByEmail(String email) {
+		return userRep.getUserByEmail(email);
+	}
 }

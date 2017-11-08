@@ -28,6 +28,24 @@ public interface BookService {
 	public Book save(Book book);
 	
 	/**
+	 * Delete a book from the repository
+	 * 
+	 * @param book
+	 * @return
+	 */
+	public void delete(Book book);
+	 	
+	/**
+	 * Return a book corresponding to ID.
+	 * 
+	 * @param id
+	 * @return A book with id = id. 
+	 */
+	public Book bookById(long id);	
+	
+	
+	
+	/**
 	 * Return a list of books with a title
 	 * 
 	 * @param title
@@ -93,4 +111,6 @@ public interface BookService {
 	 * 
 	 */
 	public boolean isAlive();
+	
+	public List<Book> booksByEmail(String user_contact);
 }

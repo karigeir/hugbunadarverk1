@@ -36,6 +36,20 @@ public interface BookRepository extends JpaRepository<Book,Long>{
 	Book save (Book book);
 	
 	/**
+ 	 * Remove book from database;
+ 	 * @param book
+	 */
+	void delete (Book book);
+	 	
+	/**
+	 * Find book by ID.
+	 * 
+	 * @param id
+	 * @return A book.
+	 */
+	Book findById(long id);
+	
+	/**
 	 * Find Book by title
 	 * 
 	 * @param title
@@ -101,4 +115,14 @@ public interface BookRepository extends JpaRepository<Book,Long>{
 	 */
 	@Query(value = "SELECT p FROM Book p WHERE (p.author LIKE CONCAT('%',:author,'%') AND p.edition = :edition)")
 	List<Book> findByAuthorEdition(@Param("author")String author, @Param("edition")int edition);
+	
+	/**
+	 * Find books by user_contact (email).
+	 * 
+	 * @param author
+	 * @param edition
+	 * @return List of books.
+	 */
+	@Query(value = "SELECT u FROM Book u WHERE u.userContact=:user_contact")
+	List<Book> findByEmail(@Param("user_contact")String user_contact);
 }

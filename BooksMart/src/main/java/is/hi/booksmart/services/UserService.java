@@ -31,4 +31,6 @@ public interface UserService {
 	public User save(User book);
 	
 	public User getUserbyUsername(String username);
+	
+	public User getUserByEmail(String email);
 }

@@ -60,6 +60,9 @@ public class Book {
 		this.userContact = userContact;
 	}
 	
+	public long getId() {
+		return id;
+	}
 	/**
 	 * Getter for title attribute.
 	 * 

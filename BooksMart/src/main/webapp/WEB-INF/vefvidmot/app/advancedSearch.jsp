@@ -20,15 +20,7 @@
 
 <body>
 	<div id="header">
-		<nav class="menu">
-			<div class="menuleft">
-				<a class="menutext" href="/app/">BooksMart</a>
-			</div>
-			<div class="menuright">
-				<a class="menubutton" href="./create_user">Sign up</a> <a
-					class="menubutton" href="./login">Login</a>
-			</div>
-		</nav>
+		<%@ include file = "header.jsp" %>
 	</div>
 	<div id="content">
 		<main>
@@ -52,14 +44,7 @@
 		</main>
 	</div>
 	<div id="footer">
-		<div footer class="footer">
-			<hr class="footerhr">
-			</hr>
-			<div class="footercontent">
-				<p class="footertext">© BooksMart 2017</p>
-			</div>
-			</footer>
-		</div>
+		<%@ include file = "footer.jsp" %>
 	</div>
 </body>
 

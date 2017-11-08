@@ -5,14 +5,22 @@
 <%@ taglib prefix="sf" uri="http://www.springframework.org/tags/form"%>
 
 <html>
-	<head>
-		<title>Book added</title>
-	</head>
-	<body>
-		<h3>${book.getTitle()} successfully added to database.</h3>
-		<a href="/app/"><button>Go back to front page</button></a>
-		
-		
-
-	</body>
+<head>
+<title>Book added</title>
+</head>
+<body>
+	<div id="header">
+		<%@ include file="header.jsp"%>
+	</div>
+	<div id="content">
+		<main>
+		<div class="header--login">
+			<h3>${book.getTitle()} successfully added to database.</h3>
+		</div>
+		<a href="/app/"><button>Go back to front page</button></a> </main>
+	</div>
+	<div id="footer">
+		<%@ include file="footer.jsp"%>
+	</div>
+</body>
 </html>
