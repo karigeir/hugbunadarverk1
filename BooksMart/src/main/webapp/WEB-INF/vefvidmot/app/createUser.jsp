@@ -47,12 +47,14 @@
 		</main>
 	</div>
 	<div id="footer">
-		<footer class="footer">
+		<div footer class="footer">
 			<hr class="footerhr">
+			</hr>
 			<div class="footercontent">
 				<p class="footertext">© BooksMart 2017</p>
 			</div>
-		</footer>
+			</footer>
+		</div>
 	</div>
 </body>
 

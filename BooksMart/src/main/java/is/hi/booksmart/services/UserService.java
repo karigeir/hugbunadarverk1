@@ -30,11 +30,5 @@ public interface UserService {
 	 */
 	public User save(User book);
 	
-	/**
-	 * Get user by username.
-	 * 
-	 * @param username
-	 * @return
-	 */
 	public User getUserbyUsername(String username);
 }
