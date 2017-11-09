@@ -149,21 +149,22 @@ public class SearchController 	{
     		
     		if (user != null) {
     			model.addAttribute("error", "Username already exists!");
+    			
     			return "app/createUser";
-    		}
-    		
-    		else if (userEmail != null) {
+    			
+    		} else if (userEmail != null) {
     			model.addAttribute("error", "Email is already taken!");
+    			
     			return "app/createUser";
-    		}
-    		else {
-    		User a = new User(username, email, pw);
-    		userService.save(a);
-    		model.addAttribute("user", a);
+    			
+    		} else {
+	    		User a = new User(username, email, pw);
+	    		userService.save(a);
+	    		model.addAttribute("user", a);
+	    		
+	    		session.setAttribute("myUser", a);
     		
-    		session.setAttribute("myUser", a);
-    		
-    		return "redirect:./";
+	    		return "redirect:./";
     		}
     }
     

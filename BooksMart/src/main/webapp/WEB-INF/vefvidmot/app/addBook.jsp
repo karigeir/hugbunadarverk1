@@ -16,7 +16,7 @@
 	<div id="content">
 		<main>
 		<div class="header--login">
-			<h1>Nýskrá bók</h1>
+			<h1>Register your book</h1>
 		</div>
 
 		<form method="POST" action="/app/book_confirm">

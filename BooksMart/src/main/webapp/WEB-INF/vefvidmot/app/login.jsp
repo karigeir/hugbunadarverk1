@@ -23,7 +23,7 @@
 	<div id="content">
 		<main>
 		<div class="header--login">
-			<h1>Login</h1>
+			<h1>Sign in</h1>
 		</div>
 		<div>
 			<c:if test="${not empty error}">

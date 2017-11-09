@@ -28,12 +28,12 @@ User loggedInUser = session != null ? (User) session.getAttribute("myUser") : nu
 		</div>
 		<div class="menuright">
 				<% if (loggedInUser == null) { %>
-					<a class="menubutton" href="./create_user">Sign up</a>
-					<a class="menubutton" href="./login">Login</a>
+					<a class="menubutton" href="./create_user">Register</a>
+					<a class="menubutton" href="./login">Sign in</a>
 				<% } else { %>
 					<a class="menubutton" href="./add_book">Sell a book</a> 
-					<a class="menubutton" href="./userInventory">My Profile</a> 
-					<a class="menubutton" href="./logout">Logout</a>
+					<a class="menubutton" href="./userInventory">My books</a> 
+					<a class="menubutton" href="./logout">Sign out</a>
 				<% } %>
 		</div>
 	</nav>

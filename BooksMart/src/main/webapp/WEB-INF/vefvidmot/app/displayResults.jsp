@@ -56,7 +56,9 @@
 				</table>
 			</c:when>
 			<c:otherwise>
-				<h3>No books found.</h3>
+				<h2>No books found.</h2>
+				<h4>Would you like to try our advanced search instead?</h4>
+				<a href="./adv_search"><button>Advanced search</button></a>
 			</c:otherwise>
 		</c:choose>
 	</div>

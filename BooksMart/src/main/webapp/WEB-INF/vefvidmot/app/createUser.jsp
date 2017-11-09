@@ -25,7 +25,7 @@
 	<div id="content">
 		<main>
 		<div class="header--createUser">
-			<h1>Sign up</h1>
+			<h1>Register</h1>
 			<c:if test="${not empty error}">
 				<div>${error}</div>
 			</c:if>
