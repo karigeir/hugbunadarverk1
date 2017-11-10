@@ -39,7 +39,6 @@
 					name="pw" type="password" required /><br> <input
 					type="submit" value="Confirm" /> <input type="hidden"/>
 			</form>
-			<a href="/app/"><button>Back</button></a>
 		</div>
 		</main>
 	</div>

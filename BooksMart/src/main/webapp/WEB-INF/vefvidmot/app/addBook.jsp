@@ -16,7 +16,7 @@
 	<div id="content">
 		<main>
 		<div class="header--login">
-			<h1>Register your book</h1>
+			<h1>Register a book to sell</h1>
 		</div>
 
 		<form method="POST" action="/app/book_confirm">
@@ -30,7 +30,6 @@
 				name="school" type="text" placeholder="School" required /><br>
 			<input type="submit" value="Confirm" />
 		</form>
-		<a href="/app/"><button>Back</button></a> </main>
 	</div>
 	<div id="footer">
 		<%@ include file="footer.jsp"%>

@@ -22,9 +22,9 @@
     <%@ include file = "header.jsp" %>
   </div>
   <div id="content">
-    <main>
+    <main class="main--frontpage">
       <div class="logo">
-        <img src="../../css/profile1.jpg" class="img--logo">
+<!--         <img src="../../css/profile1.jpg" class="img--logo"> -->
       </div>
       <div class="header--text">
         <h1>BooksMart</h1>
@@ -32,7 +32,7 @@
       <div>
         <form method="GET" action="/app/results" role="form" class="search--bar">
           <input class="input--field" name="title" type="text" placeholder="Search for books...">
-          <input class="input--button" type="submit" value="Search">
+<!--           <input class="input--button" type="submit" value=""> -->
         </form>
       </div>
     </main>
