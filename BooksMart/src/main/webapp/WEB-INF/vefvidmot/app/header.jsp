@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1" session="false"%>
-<%@ page import="is.hi.booksmart.model.User" %>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1" session="false"%>
+<%@ page import="is.hi.booksmart.model.User"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
@@ -27,14 +28,19 @@ User loggedInUser = session != null ? (User) session.getAttribute("myUser") : nu
 			<a class="menutext" href="/app/">BooksMart</a>
 		</div>
 		<div class="menuright">
-				<% if (loggedInUser == null) { %>
-					<a class="menubutton" href="./create_user">Register</a>
-					<a class="menubutton" href="./login">Sign in</a>
-				<% } else { %>
-					<a class="menubutton" href="./add_book">Sell a book</a> 
-					<a class="menubutton" href="./userInventory">My books</a> 
-					<a class="menubutton" href="./logout">Sign out</a>
-				<% } %>
+			<% if (loggedInUser == null) { %>
+			<a class="menubutton" href="./create_user">Register</a> <a
+				class="menubutton" href="./login">Sign in</a>
+			<% } else { %>
+			<div class="dropdown">
+				<button class="dropbtn">My Profile</button>
+				<div class="dropdown-content">
+					<a class="menubutton" href="./add_book">Sell a book</a> <a
+						class="menubutton" href="./userInventory">My books</a>        
+				</div>
+			</div>
+				<a class="menubutton" href="./logout">Sign out</a>
+			<% } %>
 		</div>
 	</nav>
 </div>

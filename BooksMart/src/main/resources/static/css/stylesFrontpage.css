@@ -91,11 +91,23 @@ a:hover {
   cursor: pointer;
 }
 
-body {
+body:before {
   margin: 0;
   padding: 0;
   height: 100%;
-   background-image: url("book2v2.jpg");
+  background-image: url("book2v2.jpg");
+  content: "";
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: -1;
+  
+/*   display: block; */
+/*   -webkit-filter: blur(50px); */
+/*   -moz-filter: blur(50px); */
+/*   -o-filter: blur(50px); */
+/*   -ms-filter: blur(50px); */
+/*   filter: blur(50px); */
 }
 
 #container {
@@ -219,6 +231,59 @@ background-image: url(searchImg.png);
 .footerhr {
   border-color: black;
 }
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f4f4f4;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    font-size: 0.8em;
+     border-radius: 25px;
+    padding: 15px; 
+    width: 170px;
+    height: 130px; 
+    
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    background: transparent;
+    opacity: 1; /* css standard */
+    filter: alpha(opacity=100); /* internet explorer */
+ }
+
+.dropdown-content a:hover {background-color: #d1d1d1}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropbtn {
+  padding: 5px 10px;
+  margin-left: 5px;
+  overflow: hidden;
+  font-size: 1.5em;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  cursor: pointer;
+  border-radius: 4px;
+  background-color: transparent;
+  border: none;
+}
+
 
 /**
  * ------------------
