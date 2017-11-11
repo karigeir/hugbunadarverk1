@@ -9,69 +9,81 @@
 <html lang="en">
 
 <head>
-<title>Leitarniðurstöður</title>
+<title>BooksMart</title>
 </head>
 <body>
 	<div id="header">
 		<%@ include file="header.jsp"%>
 	</div>
-	<main>
-	<div class="dispResSearchbar">
-		<form method="GET" action="/app/results" role="form"
-			class="search--bar">
-			<input class="input--field" name="title" type="text"
-				placeholder="Search for books..."> <input
-				class="input--button" type="submit" value="Search">
-		</form>
-	</div>
+	<div class="sp-background">
+	<div class="results-wrapper">
+		
+		<div class="results-sidebar">
+			<form id="searchform-side" class="side-search-bar" method="GET" action="/app/results" role="form">
+				<input class="side-input-field" name="title" type="text" placeholder="Search for books..."/>
+			<div class="side-input-btn-wrapper">
+				<button form="searchform-side" class="side-input-btn" type="submit">
+					<img src="../../css/searchImg.png" width=19.2 height=19.2/>
+				</button>
+			</div> 
+			</form>
+		</div>
 	.
-	<div>
-		<c:choose>
-			<c:when test="${not empty books}">
-				<table class="books">
-					<thead>
-						<tr>
-							<th>Title</th>
-							<th>Author</th>
-							<th>Ed.</th>
-							<th>Course</th>
-							<th>Dept.</th>
-							<th>School</th>
-							<th>Contact info.</th>
-						</tr>
-					</thead>
-					<c:forEach var="book" items="${books}">
-						<tr>
-							<td>${book.getTitle()}</td>
-							<td>${book.getAuthor()}</td>
-							<td>${book.getEdition()}</td>
-							<td>${book.getCourse().getName()}</td>
-							<td>${book.getCourse().getDepartment().getName()}</td>
-							<td>${book.getCourse().getDepartment().getSchool().getName()}</td>
-							<td><input id="contact_email" type="text"
-								value="${book.getUserContact()}" readonly />
-								<button onclick="copyEmail()">Copy</button></td>
-						</tr>
-					</c:forEach>
-				</table>
-			</c:when>
-			<c:otherwise>
-				<h2>No books found.</h2>
-				<h4>Would you like to try our advanced search instead?</h4>
-				<a href="./adv_search"><button>Advanced search</button></a>
-			</c:otherwise>
-		</c:choose>
+		<div class="results">
+			<c:choose>
+				<c:when test="${not empty books}">
+					<table class="results-table">
+						<thead>
+							<tr class="results-table-head">
+								<th>Title</th>
+								<th>Author</th>
+								<th>Ed.</th>
+								<th>Course</th>
+								<th>Dept.</th>
+								<th>School</th>
+								<th>Contact info.</th>
+							</tr>
+						</thead>
+						<c:forEach var="book" items="${books}">
+							<tr class="results-table-row">
+								<td>${book.getTitle()}</td>
+								<td>${book.getAuthor()}</td>
+								<td>${book.getEdition()}</td>
+								<td>${book.getCourse().getName()}</td>
+								<td>${book.getCourse().getDepartment().getName()}</td>
+								<td>${book.getCourse().getDepartment().getSchool().getName()}</td>
+								<td>
+									<div class="email-wrapper">
+										<input id="${book.getId()}" class="contact-email" type="text" value="${book.getUserContact()}" readonly />
+										<div class="btn-wrapper">
+											<button class="btn-copy-email" onclick="copyEmail(${book.getId()})">
+												<img src="../../css/copy.png" width=13.6 height=13.6/>
+											</button>
+										</div>
+									</div>
+								</td>
+							</tr>
+						</c:forEach>
+					</table>
+				</c:when>
+				<c:otherwise>
+					<h2 class="no-results-msg">No books found.</h2>
+					<h4 class="no-results-text">Would you like to try our advanced search instead?</h4>
+					<a class="no-results-link" href="./adv_search">Advanced Search</a>
+				</c:otherwise>
+			</c:choose>
+		</div>
 	</div>
-
+	</div>
+	
 	<script>
-			function copyEmail() {
-  				var copyText = document.getElementById("contact_email");
+			function copyEmail(id) {
+  				var copyText = document.getElementById(id);
   				copyText.select();
   				document.execCommand("Copy");
   				alert("Copied the text: " + copyText.value);
 			}
 		</script>
-		</main>
 	<div id="footer">
 		<%@ include file="footer.jsp"%>
 	</div>
