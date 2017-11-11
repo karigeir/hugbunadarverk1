@@ -7,7 +7,7 @@
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Nýskrá bók</title>
+<title>BooksMart</title>
 </head>
 <body>
 	<div id="header">
@@ -21,13 +21,11 @@
 
 		<form method="POST" action="/app/book_confirm">
 			Titill: <input name="title" type="text" placeholder="Title" required /><br>
-			Höfundur: <input name="author" type="text" placeholder="Author"
-				required /><br> Útgáfa: <input name="edition" type="number"
-				placeholder="Edition" required /><br> Fag: <input
-				name="course" type="text" placeholder="Course" required /><br>
-			Námsbraut: <input name="department" type="text"
-				placeholder="Department" required /><br> Skóli: <input
-				name="school" type="text" placeholder="School" required /><br>
+			Höfundur: <input name="author" type="text" placeholder="Author" required /><br>
+			Útgáfa: <input name="edition" type="number" min=1 max=99 placeholder="Edition" required /><br> 
+			Fag: <input name="course" type="text" placeholder="Course" required /><br>
+			Námsbraut: <input name="department" type="text" placeholder="Department" required /><br> 
+			Skóli: <input name="school" type="text" placeholder="School" required /><br>
 			<input type="submit" value="Confirm" />
 		</form>
 	</div>

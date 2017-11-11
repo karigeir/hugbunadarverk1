@@ -12,7 +12,7 @@
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="https://fonts.googleapis.com/css?family=Lato|Merriweather"
 	rel="stylesheet">
-<link rel="stylesheet" href="../../css/stylesFrontpage.css" />
+<link rel="stylesheet" href="../../css/styles.css" />
 
  <div id="footer">
     <div footer class="footer">

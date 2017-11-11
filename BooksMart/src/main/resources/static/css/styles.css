@@ -10,7 +10,7 @@
 html {
   box-sizing: border-box;
   font-size: 16px;
-
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.2) 100%);
   height: 100%;
 }
 
@@ -59,31 +59,30 @@ html {
 }
 
 .menubutton {
-  padding: 5px 10px;
-  margin-left: 5px;
-  overflow: hidden;
+  font-family: Merriweather, georgia, serif;
   font-size: 1.5em;
+  padding: 0.3rem 0.6rem;
+  margin-left: 0.rem;
+  overflow: hidden;
   color: white;
   text-align: center;
   text-decoration: none;
   text-overflow: ellipsis;
   white-space: nowrap;
   cursor: pointer;
-  border-radius: 4px;
+  border-radius: 0.2rem;
 }
 
-/* .menubutton:hover { */
-/*   background-color: #eeeeee; */
-/* } */
 
 a:hover {
 	color: #dddddd;
 }
 
 .menutext {
-  padding: 5px 10px;
-  margin-left: 5px;
-  font-size: 2em;
+  font-family: Merriweather, georgia, serif;
+  padding: 0.3rem 0.6rem;
+  margin-left: 0.6rem;
+  font-size: 2rem;
   font-weight: bold;
   color: white;
   text-align: center;
@@ -95,8 +94,13 @@ body {
   margin: 0;
   padding: 0;
   height: 100%;
-  background-image: url("book2v2.jpg");
-  background-size: cover;
+}
+
+.fp-background {
+	height: 100%;
+	width: 100%;
+	background-image: url("book2v2.jpg");
+	background-size: cover;
 }
 
 #container {
@@ -131,8 +135,15 @@ main {
   margin: -11em -4em 1em 2em;
 }
 
-.input--field {
-  height: 30px;
+.search-bar {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.input-field {
+  height: 2rem;
+  width: 90%;
   font-family: "Open Sans", sans-serif;
   font-size: 1.2em;
   font-weight: lighter;
@@ -143,29 +154,22 @@ main {
   color: white;
  }
 
+.input-btn-wrapper {
+	margin: 0;
+	width: 10%;
+	height: 2rem;
+	border-bottom: 2px solid white;
+	background: transparent;
+}
 
-/* .input--button { */
-/*   width: 100%; */
-/*   height: 30px; */
-/*   font-family: "Open Sans", sans-serif; */
-/*   font-size: 1.2em; */
-/*   font-weight: lighter; */
-/*   border-radius: 4px; */
-/*   display: flex; */
-/*     border-bottom: 1px solid; */
-/*     color: rgba(255, 255, 255, 0.5); */
-/* } */
+.input-btn-wrapper:hover {
+	background: rgba(255, 255, 255, 0.2);
+}
 
-.input--button {
-/*   background:url(searchIcon.png); */
-background-image: url(searchImg.png);
-  background-size: contain;
-  position: absolute;
-  background-position: center;
-  background-repeat: no-repeat;
-  height: 10%;
-  width: 10%;
-  background: transparent;
+.input-btn {
+	width: 100%;
+	background: transparent;
+	border: none;
 }
 
 ::-webkit-input-placeholder { /* Chrome */
@@ -222,9 +226,9 @@ background-image: url(searchImg.png);
 }
 
 /**
- * ------------------
+ * -------------
  * frontpage CSS
- * ------------------
+ * -------------
 **/
 
 .main--frontpage {
@@ -275,9 +279,9 @@ background-image: url(searchImg.png);
 
 
 /**
- * ---------
+ * --------------
  * createUser CSS
- * ---------
+ * --------------
 **/
 
 .header--createUser {
@@ -294,29 +298,174 @@ background-image: url(searchImg.png);
 }
 
 /**
- * ---------
+ * ------------------
  * displayResults CSS
- * ---------
+ * ------------------
 **/
 
-.dispResSearchbar {
-	margin-top: 200px;
-	margin-right: 200px;
+.sp-background {
+	height: 100%;
+	width: 100%;
+	background-image: url("book2v2.jpg");
+	background-size: cover;
+}
+
+.results-wrapper {
+	width: 100%;
+	height: 100%;
+	background: rgba(255,255,255,0.7);
+	display: flex;
+	flex-direction: row;
+}
+
+.results {
+	margin-top:20%;
 	display: flex;
 	flex-direction: column;
-	align-items: left;
+	align-items: center;
+	width: 75%;
+	height: 100%;
+	margin-bottom: 2.75%;
+}
+
+.results-sidebar {
+	background-color: rgba(1,1,1,0.5);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 25%;
+	height: 100%;
+	margin-bottom: 2.75%;
+}
+
+.side-search-bar {
+	margin-top: 25%;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.side-input-field {
+  height: 2rem;
+  width: 90%;
+  font-family: "Open Sans", sans-serif;
+  font-size: 1.2em;
+  font-weight: lighter;
+  border: none;
+  background: transparent;
+  outline:none;
+  border-bottom: 2px solid white;
+  color: white;
+ }
+
+.side-input-btn-wrapper {
+	margin: 0;
+	width: 10%;
+	height: 2rem;
+	border-bottom: 2px solid white;
+	background: transparent;
+}
+
+.side-input-btn-wrapper:hover {
+	background: rgba(255, 255, 255, 0.2);
+}
+
+.side-input-btn {
 	width: 100%;
-	padding: 100;
+	background: transparent;
 	border: none;
+}
+
+.results-table {
 	font-family: Merriweather, georgia, serif;
-	font-size: 1.5rem;
-	margin-bottom: 25px;
+	font-size: 0.85rem;
+	margin-top: 5%;
+	width: 70%;
+	border-spacing: 0;
+}
+
+.results-table-row:nth-child(odd) {
+	background: rgba(255,255,255,0.05);
+}
+
+.results-table-row:nth-child(even) {
+	background: rgba(1,1,1,0.05);
+}
+
+.results-table-row:hover {
+	background: rgba(1,1,1,0.1);
+}
+
+.results-table-head, .results-table-row {
+	height: 2rem;
+}
+
+.results-table-head {
+	color: #eee;
+	background: rgba(1,1,1,0.5);
+}
+
+th, td {
+	text-align: center;
+}
+
+.email-wrapper {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.contact-email {
+	font-family: Merriweather, georgia, serif;
+	font-size: 0.85rem;
+	background: transparent;
+	border: none;
+	border-bottom: 1px solid rgba(1,1,1,0.7);
+	width: 60%;
+}
+.btn-wrapper {
+	margin: 0;
+	width: 10%;
+	border-bottom: 1px solid rgba(1,1,1,0.7);
+	background: transparent;
+}
+
+.btn-wrapper:hover {
+	background: rgba(1,1,1,0.15);
+}
+
+.btn-copy-email {
+	width: 100%;
+	background: transparent;
+	border: none;
+}
+
+.no-results-msg {
+	margin-top: 5%;
+	font-family: Merriweather, georgia, serif;
+	font-size: 2rem;
+}
+
+.no-results-text {
+	font-family: Merriweather, georgia, serif;
+	font-size: 1rem;
+}
+
+.no-results-link {
+	margin-top: 5%;
+	font-family: Merriweather, georgia, serif;
+	font-size: 1rem;
+	color: black;
+}
+
+.no-results-link:hover {
+	color: #999;
 }
 
 /**
- * ---------
+ * -------------
  * forbidden CSS
- * ---------
+ * -------------
 **/
 
 .layout--forbidden {

@@ -8,14 +8,14 @@
 <html lang="en">
 
 <head>
-<title>Booksmart</title>
+<title>BooksMart</title>
 <!-- Required meta tags -->
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="https://fonts.googleapis.com/css?family=Lato|Merriweather"
 	rel="stylesheet">
-<link rel="stylesheet" href="../../css/stylesFrontpage.css" />
+<link rel="stylesheet" href="../../css/styles.css" />
 </head>
 
 <body>
@@ -30,10 +30,10 @@
 		<div>
 
 			<form method="GET" action="/app/test">
-				<input name="title" type="text" placeholder="Title..."> <input
-					name="edition" type="number" min=1 max=99 placeholder="Ed.">
-				<input name="author" type="text" placeholder="Author..."> <input
-					type="submit" value="Search"><br>
+				<input name="title" type="text" placeholder="Title..."> 
+				<input name="edition" type="number" min=1 max=99 placeholder="Ed.">
+				<input name="author" type="text" placeholder="Author..."> 
+				<input type="submit" value="Search"><br>
 				<!-- <select name="dd_school">
 				<c:forEach var="school" items="${schools}">
 					<option value="${school.getId()}">${school.getName()}</option>
