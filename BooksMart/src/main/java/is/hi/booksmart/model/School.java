@@ -84,6 +84,7 @@ public class School {
 
 	/**
 	 * Getter for abbreviation of school name.
+	 * 
 	 * @return abbrev - Abbreviation of school name.
 	 */
 	public String getAbbrev() {
@@ -102,7 +103,7 @@ public class School {
 	/**
 	 * A simple toString implementation.
 	 * 
-	 * @return - School as a string of "name, abbreviation".
+	 * @return - School as a string.
 	 */
 	@Override
 	public String toString() {

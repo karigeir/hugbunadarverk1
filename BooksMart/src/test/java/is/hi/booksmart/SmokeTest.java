@@ -1,6 +1,6 @@
 package is.hi.booksmart;
 
-import is.hi.booksmart.controller.SearchController;
+import is.hi.booksmart.controller.AppController;
 import is.hi.booksmart.controller.LoginController;
 import static org.assertj.core.api.Assertions.assertThat;
 import org.junit.Test;
@@ -22,7 +22,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 public class SmokeTest {
     
         @Autowired 
-        SearchController searchController;
+        AppController searchController;
         @Autowired 
         LoginController loginController;
 

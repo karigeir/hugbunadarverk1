@@ -31,9 +31,4 @@ public class DepartmentServiceImp implements DepartmentService {
 	public Department save(Department dept) {
 		return depRep.save(dept);
 	}
-	
-	@Override
-	public List<Department> departmentsBySchool(long schoolId) {
-		return depRep.findBySchool(schoolId);
-	}
 }

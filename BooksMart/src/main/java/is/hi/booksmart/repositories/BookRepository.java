@@ -8,14 +8,12 @@ import java.util.List;
 import is.hi.booksmart.model.Book;
 
 /**
- *
  * @author Kári Geir Gunnarsson 	<kgg5@hi.is>
  * @author Sævar Ingi Sigurðsson <sis108@hi.is>
- * @date október 2017
+ * @date October 2017
  * HBV501G Software Development 1
  * 
- * Repository for the Book model
- * 
+ * Repository for the Book model.
  */
 
 
@@ -36,7 +34,8 @@ public interface BookRepository extends JpaRepository<Book,Long>{
 	Book save (Book book);
 	
 	/**
- 	 * Remove book from database;
+ 	 * Remove book from database
+ 	 * 
  	 * @param book
 	 */
 	void delete (Book book);
@@ -73,7 +72,7 @@ public interface BookRepository extends JpaRepository<Book,Long>{
 	 * @return List of books written by "author".
 	 */
 	@Query(value = "SELECT p FROM Book p WHERE p.author LIKE CONCAT('%',:author,'%')")
-	List<Book> findByAuthor(String author);
+	List<Book> findByAuthor(@Param("author")String author);
 	
 	/**
 	 * Find Book by title, edition and author

@@ -4,16 +4,16 @@ import java.util.List;
 import is.hi.booksmart.model.Book;
 
 /**
- * 
  * @author Kári Geir Gunnarsson 	<kgg5@hi.is>
- * @date 4.október 2017
+ * @author Sævar Ingi Sigurðsson <sis108@hi.is>
+ * @date October 2017
  * HBV501G Software Development 1
- *  
  */
 
 public interface BookService {
+	
 	/**
-	 * Returns a list of all books in BookRpository
+	 * Gets all books in BookRpository
 	 * 
 	 * @return list of Books
 	 */
@@ -112,5 +112,11 @@ public interface BookService {
 	 */
 	public boolean isAlive();
 	
+	/**
+	 * Return a list of books by email.
+	 * 
+	 * @param user_contact
+	 * @return
+	 */
 	public List<Book> booksByEmail(String user_contact);
 }

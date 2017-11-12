@@ -49,7 +49,7 @@ public class Book {
 	 * @param author - Author of Book.
 	 * @param edition - Edition of Book.
 	 * @param course - Course that Book is associated with.
-	 * @param user - User who posted Book up for sale.
+	 * @param userContact - Contact info of User who posted Book up for sale.
 	 */
 	public Book(String title, String author, int edition, Course course, String userContact) {
 		super();
@@ -60,6 +60,11 @@ public class Book {
 		this.userContact = userContact;
 	}
 	
+	/**
+	 * Getter for id attribute.
+	 * 
+	 * @return id - Book ID.
+	 */
 	public long getId() {
 		return id;
 	}
@@ -82,7 +87,8 @@ public class Book {
 	}
 	
 	/**
-	 * Getter for author attribute.
+	 * Getter for author attribute
+	 * .
 	 * @return author - Book's author.
 	 */
 	public String getAuthor() {
@@ -91,6 +97,7 @@ public class Book {
 	
 	/**
 	 * Setter for author attribute.
+	 * 
 	 * @param author - Book's author.
 	 */
 	public void setAuthor(String author) {
@@ -153,7 +160,7 @@ public class Book {
 	/**
 	 * A simple toString implementation.
 	 * 
-	 * @return - Book as a string of "title, edition, author".
+	 * @return - Book as a string.
 	 */
 	@Override
 	public String toString() {

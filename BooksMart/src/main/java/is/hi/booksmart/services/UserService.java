@@ -16,21 +16,33 @@ import is.hi.booksmart.model.User;
 public interface UserService {
 
 	/**
-	 * Returns a list of all Users in UserRepository
+	 * Gets all Users in UserRepository
 	 * 
 	 * @return list of Users
 	 */
 	public List<User> allUsers();
 	
 	/**
-	 * Save a book into the repository
+	 * Save a user into the repository
 	 * 
 	 * @param book
 	 * @return
 	 */
 	public User save(User book);
 	
+	/**
+	 * Return User with username
+	 * 
+	 * @param username
+	 * @return
+	 */
 	public User getUserbyUsername(String username);
 	
+	/**
+	 * Return User with email
+	 * 
+	 * @param email
+	 * @return
+	 */
 	public User getUserByEmail(String email);
 }
