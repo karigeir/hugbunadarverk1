@@ -32,12 +32,11 @@ import is.hi.booksmart.services.UserService;
  * @author Kári Geir Gunnarsson <kgg5@hi.is>
  * @date October 2017 HBV501G Software Project 1
  * 
- *       Controller that dictates what is done when the user or UI sends an
- *       instruction.
+ * Controller that dictates what is done when the user or UI sends an instruction.
  **/
 @Controller
 @RequestMapping("/app/") // Request Mapping so that every site starts with /app. 
-public class SearchController 	{
+public class AppController 	{
 	
 
 	// Connection to service class(es).
@@ -55,7 +54,7 @@ public class SearchController 	{
     /**
      * Display search form.
      * 
-     * @return
+     * @return String pointing to .jsp file.
      */
     @RequestMapping("")
     public String search(HttpSession session)  {
@@ -68,7 +67,7 @@ public class SearchController 	{
      * Display advanced search form.
      * 
      * @param model
-     * @return
+     * @return String pointing to .jsp file.
      */
     @RequestMapping("/adv_search")
     public String advSearch() {
@@ -78,7 +77,7 @@ public class SearchController 	{
     /**
      * Display add Book form.
      * 
-     * @return
+     * @return String pointing to .jsp file.
      */
     @RequestMapping("/add_book")
     public String displayBookForm(HttpSession session) {
@@ -91,9 +90,9 @@ public class SearchController 	{
     }
     
     /**
-     * Display add createUser page.
+     * Display createUser page.
      * 
-     * @return
+     * @return String pointing to .jsp file.
      */
     @RequestMapping("/create_user")
     public String displayUserCreate() {
@@ -104,7 +103,7 @@ public class SearchController 	{
     /**
      * Add book to database.
      * 
-     * @return
+     * @return String pointing to .jsp file.
      */
     @RequestMapping(value = "/book_confirm", method = RequestMethod.POST)
     public String addBook(HttpSession session, 
@@ -140,7 +139,7 @@ public class SearchController 	{
     /**
      * Add user to database.
      * 
-     * @return
+     * @return String pointing to .jsp file.
      */
     @RequestMapping(value = "/user_confirm", method = RequestMethod.POST)
     public String createUser(HttpSession session,
@@ -178,7 +177,7 @@ public class SearchController 	{
      * 
      * @param title
      * @param model
-     * @return
+     * @return String pointing to .jsp file.
      */
     @RequestMapping(value="/results", method=RequestMethod.GET)
     public String booksByTitle (@RequestParam(value="title") String title, Model model) {
@@ -222,9 +221,15 @@ public class SearchController 	{
     		return "app/userInventory";
     }
     
-     /**
-     * Get books by user displayed in his inventory
-    */
+	 /**
+	 * Get books by user displayed in his inventory
+	 *
+	 * Get books by user displayed in his inventory.
+	 * 
+	 * @param session
+	 * @param model
+	 * @return String pointing to .jsp file.
+	 */
     @RequestMapping(value="/userInventory", method=RequestMethod.GET)
     public String booksOwnedByUser (HttpSession session, Model model) {
     	
@@ -244,7 +249,12 @@ public class SearchController 	{
     
     /**
      * Delete book from database.
-    */
+     * 
+     * @param session
+     * @param model
+     * @param id
+     * @return String pointing to .jsp file.
+     */
     @RequestMapping(value="/deletion", method=RequestMethod.GET)
     public String deleteBook (HttpSession session, Model model, 
     						   @RequestParam(value="book_id") String id) { 
@@ -270,16 +280,14 @@ public class SearchController 	{
         	return "app/userInventory";
         }
         
- 
-	
-    /**
-     * Use advanced search (unfinished?).
+     /**
+     * Use advanced search.
      * 
      * @param title
      * @param edition
      * @param author
      * @param model
-     * @return
+     * @return String pointing to .jsp file.
      */
     @RequestMapping(value="/test", method=RequestMethod.GET)
     public String advSearch (@RequestParam(value="title", required=false) String title, 
@@ -317,21 +325,17 @@ public class SearchController 	{
     }
     
     /**
-     * Test function.
+     * Test function (Useless).
      * 
      * @param model
-     * @return
+     * @return String pointing to .jsp file.
      */
-    @RequestMapping(value="/lifir", method=RequestMethod.GET)
-    public String lifir(Model model) {
-    		if (bookService.isAlive()) {
-    			return "app/search";
-    		} else {
-    			return "app/login";
-    		}
-    		
-    }
-    
-    
-     
- }
+	@RequestMapping(value = "/lifir", method = RequestMethod.GET)
+	public String lifir(Model model) {
+		if (bookService.isAlive()) {
+			return "app/search";
+		} else {
+			return "app/login";
+		}
+	}
+}

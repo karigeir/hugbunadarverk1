@@ -7,7 +7,10 @@
 <%@ page isELIgnored="false"%>
 
 <html lang="en">
-
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>BooksMart</title>
+</head>
 <head>
 <title>Leitarniðurstöður</title>
 </head>

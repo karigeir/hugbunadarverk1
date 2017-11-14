@@ -15,10 +15,10 @@ import is.hi.booksmart.services.UserService;
 
 /**
  * @author Kári Geir Gunnarsson <kgg5@hi.is>
- * @date October 2017 HBV501G Software Project 1
+ * @date October 2017 
+ * HBV501G Software Project 1
  * 
- *       Controller that dictates what is done when the user or UI sends an
- *       instruction.
+ * Controller that handles all functionality associated with logging in.
  **/
 
 @Controller
@@ -28,6 +28,14 @@ public class LoginController {
 	@Autowired
 	UserService userService;
 	
+	/**
+	 * Display login page.
+	 * 
+	 * @param error
+	 * @param logout
+	 * @param model
+	 * @return String pointing to .jsp file.
+	 */
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public String loginPage(@RequestParam(value = "error",required = false) String error,
 	@RequestParam(required = false) String logout, ModelMap model) {
@@ -37,6 +45,15 @@ public class LoginController {
 		return "app/login";
 	}
 	
+	/**
+	 * Login.
+	 * 
+	 * @param session
+	 * @param username
+	 * @param password
+	 * @param model
+	 * @return String pointing to .jsp file.
+	 */
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public String loginConfirm(HttpSession session, 
 	@RequestParam(value="username", required=true) String username,
@@ -60,6 +77,13 @@ public class LoginController {
 		return "redirect:./";
 	}
 	
+	/**
+	 * Logout.
+	 * 
+	 * @param session
+	 * @param model
+	 * @return String pointing to .jsp file.
+	 */
 	@RequestMapping("/logout")
 	public String logout(HttpSession session, ModelMap model) {
 		session.invalidate();

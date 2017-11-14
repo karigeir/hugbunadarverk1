@@ -9,13 +9,12 @@ import is.hi.booksmart.model.Book;
 import is.hi.booksmart.model.User;
 
 /**
- * 
  * @author Kári Geir Gunnarsson 	<kgg5@hi.is>
- * @date 4.október 2017
+ * @author Sævar Ingi Sigurðsson <sis108@hi.is>
+ * @date October 2017
  * HBV501G Software Development 1
  * 
  * Repository for the User model
- * 
  */
 public interface UserRepository extends JpaRepository<User, Long> {
 	 
@@ -28,13 +27,26 @@ public interface UserRepository extends JpaRepository<User, Long> {
 	
 	/**
 	 * Add user to repository
-	 * @param book
+	 * 
+	 * @param user
 	 */
 	User save (User user);
 	
+	/**
+	 * Find user by username
+	 * 
+	 * @param username
+	 * @return User with username.
+	 */
 	@Query(value = "SELECT u FROM User u WHERE u.username=:username)")
 	User getUserbyUsername(@Param("username")String username);
 	
+	/**
+	 * Find user by email
+	 * 
+	 * @param email
+	 * @return User with email.
+	 */
 	@Query(value = "SELECT u FROM User u WHERE u.email=:email")
 	User getUserByEmail(@Param("email")String email);
 	

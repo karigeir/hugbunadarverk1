@@ -32,15 +32,15 @@
 					<div>
 						<div class="login-form">
 						<form class="control-group" method="POST" action="/app/login">
-							<input class="input-login" name="username" type="text" class="login-field" value="" placeholder="derp" required id="login-name">
+							<input class="input-login" name="username" type="text" class="login-field" value="" placeholder="username" required id="login-name">
 							<label class="login-field-icon fui-user" for="login-name"></label>
 								<c:if test="${not empty error}">
-								<div>${error}</div>
+								<div class="error-msg">${error}</div>
 								</c:if>
 								<c:if test="${not empty message}">
 								<div>${message}</div>
 								</c:if>
-							<input class="input-login" name="pw" class="login-field" type="password" placeholder="derp" required id="login-pass">
+							<input class="input-login" name="pw" class="login-field" type="password" placeholder="password" required id="login-pass">
 							<label class="login-field-btn" for="login-pass">
 						
 							<input class="input-login" type="submit" value="Confirm" /> </label><input type="hidden"/>

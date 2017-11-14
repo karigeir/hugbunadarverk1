@@ -8,6 +8,7 @@
 <html lang="en">
 
 <head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Your books</title>
 </head>
 <body>
@@ -19,13 +20,14 @@
 	<div class="inventory-wrapper">
 	<div class="results-sidebar">
 			<form id="searchform-side" class="side-search-bar" method="GET" action="/app/searchMyBooks" role="form">
-				<input class="side-input-field" name="title" type="text" placeholder="Search your books..."/>
+				<input class="side-input-field placeholder-white" name="title" type="text" placeholder="Search your books..."/>
 			<div class="side-input-btn-wrapper">
 				<button form="searchform-side" class="side-input-btn" type="submit">
 					<img src="../../css/searchImg.png" width=19.2 height=19.2/>
 				</button>
 			</div> 
 			</form>
+			<img class="fp-logo-3" src="../../css/bm-logo-white.png" />
 		</div>
 		
 			
@@ -53,7 +55,7 @@
 							<td>${book.getCourse().getDepartment().getName()}</td>
 							<td>${book.getCourse().getDepartment().getSchool().getName()}</td>
 							<td>
- 								<form method=GET action="/app/deletion" >
+ 								<form class="table-delete" method=GET action="/app/deletion" >
  									<input name="username" type="hidden" value="${user}"/>
  									<input name="book_id" type="hidden" value="${book.getId()}" readonly/>
  									<input type="submit" value="Delete book"/>

@@ -15,12 +15,17 @@ import is.hi.booksmart.model.Department;
 public interface DepartmentService {
 
 	/**
-	 * Gets all departments
+	 * Gets all departments in DepartmentRepository
+	 * 
 	 * @return List of departments
 	 */
 	public List<Department> allDepartments();
 	
+	/**
+	 * Save a book to the repository
+	 * 
+	 * @param dept
+	 * @return
+	 */
 	public Department save(Department dept);
-	
-	public List<Department> departmentsBySchool(long schoolId);
 }

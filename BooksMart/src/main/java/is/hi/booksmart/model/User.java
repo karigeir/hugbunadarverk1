@@ -7,6 +7,14 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+/**
+ * @author Kári Geir Gunnarsson <kgg5@hi.is>
+ * @author Sævar Ingi Sigurðsson <sis108@hi.is>
+ * @date October 2017
+ * HVB501G Software Development 1
+ * 
+ * Implements the User type.
+ */
 @Entity
 @Table (name="users")
 public class User {
@@ -80,18 +88,18 @@ public class User {
 	}
 	
 	/**
-	 * Getter for title attribute.
+	 * Getter for password attribute.
 	 * 
-	 * @return pw - User pw.
+	 * @return pw - User password.
 	 */
 	public String getPw() {
 		return pw;
 	}
 	
 	/**
-	 * Setter for email attribute.
+	 * Setter for password attribute.
 	 * 
-	 * @return email - User email.
+	 * @param pw - User password.
 	 */
 	public void setPw(String pw) {
 		this.pw = pw;
@@ -101,7 +109,7 @@ public class User {
 	/**
 	 * A simple toString implementation.
 	 * 
-	 * @return - User as a string of "username, email, pw".
+	 * @return - User as a string.
 	 */
 	@Override
 	public String toString() {

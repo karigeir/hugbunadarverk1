@@ -9,6 +9,7 @@
 <html lang="en">
 
 <head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>BooksMart</title>
 </head>
 <body>
@@ -20,18 +21,20 @@
 		
 		<div class="results-sidebar">
 			<form id="searchform-side" class="side-search-bar" method="GET" action="/app/results" role="form">
-				<input class="side-input-field" name="title" type="text" placeholder="Search for books..."/>
+				<input class="side-input-field placeholder-white" name="title" type="text" placeholder="Search for books..."/>
 			<div class="side-input-btn-wrapper">
 				<button form="searchform-side" class="side-input-btn" type="submit">
 					<img src="../../css/searchImg.png" width=19.2 height=19.2/>
 				</button>
 			</div> 
 			</form>
+			<img class="fp-logo-3" src="../../css/bm-logo-white.png" />
 		</div>
-	.
+	
 		<div class="results">
 			<c:choose>
 				<c:when test="${not empty books}">
+<!-- 				<div class="scrollit"></div> -->
 					<table class="results-table">
 						<thead>
 							<tr class="results-table-head">
@@ -58,7 +61,6 @@
 										<div class="btn-wrapper">
 											<button class="btn-copy-email" onclick="copyEmail(${book.getId()})">
 												<img src="../../css/copy.png" width=13.6 height=13.6/>
-												<p class="Copy to clipboard">text</p>
 											</button>
 										</div>
 									</div>

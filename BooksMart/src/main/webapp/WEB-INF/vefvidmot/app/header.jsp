@@ -25,7 +25,8 @@ User loggedInUser = session != null ? (User) session.getAttribute("myUser") : nu
 <div id="header">
 	<nav class="menu">
 		<div class="menuleft">
-			<a class="menutext" href="/app/">BooksMart</a>
+			<a href="/app/">
+			<img class="fp-logo-2" src="../../css/bm-logo-topleft.png"></a>
 		</div>
 		<div class="menuright">
 			<% if (loggedInUser == null) { %>

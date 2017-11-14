@@ -1,7 +1,7 @@
 package is.hi.booksmart;
 
 
-import is.hi.booksmart.controller.SearchController;
+import is.hi.booksmart.controller.AppController;
 import is.hi.booksmart.services.BookService;
 import is.hi.booksmart.services.CourseService;
 import is.hi.booksmart.services.DepartmentService;
@@ -38,7 +38,7 @@ import org.springframework.context.annotation.Bean;
  *  Aðeins veflagið er keyrt upp en ekki allur "context"-inn
  *  Getum beðið um að keyra bara upp SearchController klasann 
  */
-@WebMvcTest (SearchController.class)       
+@WebMvcTest (AppController.class)       
                                             
 public class WebLayerTest {
     

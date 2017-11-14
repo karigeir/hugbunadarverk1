@@ -18,9 +18,15 @@ public interface DepartmentRepository extends JpaRepository<Department, Long> {
 	
 	/**
 	 * Gets all departments
-	 * @return List of Departments
+	 * 
+	 * @return List of Departments.
 	 */
 	List<Department> findAll();
 	
-	List<Department> findBySchool(long schoolId);
+	/**
+	 * Add department to database.
+	 * 
+	 * @param dept
+	 */
+	Department save(Department dept);
 }
