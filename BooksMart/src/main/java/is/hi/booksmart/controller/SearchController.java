@@ -81,7 +81,12 @@ public class SearchController 	{
      * @return
      */
     @RequestMapping("/add_book")
-    public String displayBookForm() {
+    public String displayBookForm(HttpSession session) {
+    	
+    	User user = (User) session.getAttribute("myUser");
+    	if (user == null) {
+    		return "app/forbidden";
+    	}
     		return "app/addBook";
     }
     
@@ -129,7 +134,7 @@ public class SearchController 	{
     		model.addAttribute("book", b);
     		bookService.save(b);
     		
-    		return "app/bookAccept";
+    		return "redirect:/app/userInventory";
     }
     
     /**
@@ -184,14 +189,47 @@ public class SearchController 	{
     		return "app/displayResults";
     }
     
-    
     /**
+     * Search for books by Title owned by the user logged in.
+     * 
+     * @param title
+     * @param model
+     * @return
+     */
+    @RequestMapping(value="/searchMyBooks", method=RequestMethod.GET)
+    public String searchBooksOwnedByUser (@RequestParam(value="title") String title, HttpSession session, Model model) {
+    		
+    		ArrayList<Book> list;
+    		list = (ArrayList<Book>) bookService.booksByTitle(title);
+    		ArrayList<Book> myList = new ArrayList<Book>();
+    		
+    		if (list.isEmpty()) {
+    			model.addAttribute("books", list);
+        		return "app/displayResults";
+    		}
+    		User user = (User) session.getAttribute("myUser");
+    		if (user == null) {
+    			return "app/forbidden";
+    		}
+    		
+    		for (Book book : list) {
+    			if (book.getUserContact().equals(user.getEmail())) {
+    				myList.add(book);
+    			}
+    		}
+    		
+    		model.addAttribute("userBooks", myList);
+    		return "app/userInventory";
+    }
+    
+     /**
      * Get books by user displayed in his inventory
     */
     @RequestMapping(value="/userInventory", method=RequestMethod.GET)
     public String booksOwnedByUser (HttpSession session, Model model) {
     	
     		ArrayList<Book> list;
+    		
     		User user = (User) session.getAttribute("myUser");
     		
     		if (user == null) {

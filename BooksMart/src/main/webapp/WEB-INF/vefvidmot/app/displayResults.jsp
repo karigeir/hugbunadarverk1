@@ -58,6 +58,7 @@
 										<div class="btn-wrapper">
 											<button class="btn-copy-email" onclick="copyEmail(${book.getId()})">
 												<img src="../../css/copy.png" width=13.6 height=13.6/>
+												<p class="Copy to clipboard">text</p>
 											</button>
 										</div>
 									</div>

@@ -13,8 +13,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link href="https://fonts.googleapis.com/css?family=Lato|Merriweather" rel="stylesheet">  
   <link rel="stylesheet" href="../../css/styles.css" />
-              
-
 </head>
 
 <body>
@@ -35,10 +33,9 @@
           				<input class="input-field" name="title" type="text" placeholder="Search for books...">
           				<div class="input-btn-wrapper">
           					<button form="searchform-main" class="input-btn" type="submit">
-          						<img src="../../css/searchImg.png" width=19.2 height=19.2/>
+          						<img src="../../css/searchImgNew.png" width=19.2 height=19.2/>
           					</button>
           				</div>
-						<!-- <input class="input--button" type="submit" value=""	 -->
         				</form>
       			</div>
     			</main>
@@ -50,3 +47,15 @@
 </body>
 
 </html>
+
+
+
+
+
+
+
+
+
+
+
+

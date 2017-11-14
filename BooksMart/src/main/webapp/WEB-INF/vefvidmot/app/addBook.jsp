@@ -13,21 +13,45 @@
 	<div id="header">
 		<%@ include file="header.jsp"%>
 	</div>
-	<div id="content">
-		<main>
-		<div class="header--login">
-			<h1>Register a book to sell</h1>
-		</div>
 
-		<form method="POST" action="/app/book_confirm">
-			Titill: <input name="title" type="text" placeholder="Title" required /><br>
-			Höfundur: <input name="author" type="text" placeholder="Author" required /><br>
-			Útgáfa: <input name="edition" type="number" min=1 max=99 placeholder="Edition" required /><br> 
-			Fag: <input name="course" type="text" placeholder="Course" required /><br>
-			Námsbraut: <input name="department" type="text" placeholder="Department" required /><br> 
-			Skóli: <input name="school" type="text" placeholder="School" required /><br>
-			<input type="submit" value="Confirm" />
-		</form>
+	<div class="ab-background">
+	<div class="form-wrapper">	
+		
+<form class="form-table" method="POST" action="/app/book_confirm">
+	<ul>
+	<li>
+	    <label for="title">Title</label>
+	    <input type="text" name="title" maxlength="100" placeholder="derp" required>
+	</li>
+	<li>
+	    <label for="author">Author</label>
+	    <input type="text" name="author" maxlength="100" placeholder="derp" required>
+	</li>
+	<li>
+	    <label for="edition">Edition</label>
+	    <input type="number" name="edition" min=1 max=99 maxlength="100" placeholder="derp" required>
+	</li>
+	<li>
+	    <label for="course">Course</label>
+	    <input type="text" name="course" maxlength="100" placeholder="derp" required>
+	</li>
+	<li>
+	    <label for="department">Department</label>
+	    <input type="text" name="department" maxlength="100" placeholder="derp" required>
+	</li>
+	<li>
+	    <label for="school">School</label>
+	    <input type="text" name="school" maxlength="100" placeholder="derp" required>
+	</li>
+	<li>
+		<input type="submit" value="Confirm" >
+	</li>
+	</ul>
+	</form>
+			
+		
+		</div>
+	
 	</div>
 	<div id="footer">
 		<%@ include file="footer.jsp"%>

@@ -14,16 +14,27 @@
 	<div id="header">
 		<%@ include file="header.jsp"%>
 	</div>
-	<div id="content">
-		<main>
-		<div class="header--login">
-			<h1>My books</h1>
-			</div>
+	
+	<div class="ip-background">
+	<div class="inventory-wrapper">
+	<div class="results-sidebar">
+			<form id="searchform-side" class="side-search-bar" method="GET" action="/app/searchMyBooks" role="form">
+				<input class="side-input-field" name="title" type="text" placeholder="Search your books..."/>
+			<div class="side-input-btn-wrapper">
+				<button form="searchform-side" class="side-input-btn" type="submit">
+					<img src="../../css/searchImg.png" width=19.2 height=19.2/>
+				</button>
+			</div> 
+			</form>
+		</div>
+		
+			
+	<div class="results">
 		<c:choose>
 			<c:when test="${not empty userBooks}">
-				<table class="books">
+				<table class="results-table">
 					<thead>
-						<tr>
+						<tr class="results-table-head">
 							<th>Title</th>
 							<th>Ed.</th>
  							<th>Author</th>
@@ -34,7 +45,7 @@
 						</tr>
 					</thead>
 					<c:forEach var="book" items="${userBooks}">
-						<tr>
+						<tr class="results-table-row">
 							<td>${book.getTitle()}</td>
 							<td>${book.getEdition()}</td>
 							<td>${book.getAuthor()}</td>
@@ -56,7 +67,8 @@
 				<h3>No books found.</h3>
 			</c:otherwise>
 		</c:choose> 
-		</main>
+		</div>
+	</div>
 	</div>
 	<div id="footer">
 		<%@ include file="footer.jsp"%>

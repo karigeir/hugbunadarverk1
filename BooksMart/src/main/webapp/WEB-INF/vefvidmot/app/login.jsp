@@ -20,27 +20,38 @@
 	<div id="header">
 		 <%@ include file = "header.jsp" %>
 	</div>
+	
+	<div class="login-background">
 	<div id="content">
 		<main>
-		<div class="header--login">
-			<h1>Sign in</h1>
+		<div class="login">
+			<div class="login-screen">
+				<div class="app-title">
+					<h1>Sign in</h1>
+				</div>
+					<div>
+						<div class="login-form">
+						<form class="control-group" method="POST" action="/app/login">
+							<input class="input-login" name="username" type="text" class="login-field" value="" placeholder="derp" required id="login-name">
+							<label class="login-field-icon fui-user" for="login-name"></label>
+								<c:if test="${not empty error}">
+								<div>${error}</div>
+								</c:if>
+								<c:if test="${not empty message}">
+								<div>${message}</div>
+								</c:if>
+							<input class="input-login" name="pw" class="login-field" type="password" placeholder="derp" required id="login-pass">
+							<label class="login-field-btn" for="login-pass">
+						
+							<input class="input-login" type="submit" value="Confirm" /> </label><input type="hidden"/>
+							
+						</form>
+					</div>
+				</div>
 		</div>
-		<div>
-			<c:if test="${not empty error}">
-				<div>${error}</div>
-			</c:if>
-			<c:if test="${not empty message}">
-				<div>${message}</div>
-			</c:if>
-
-			<form method="POST" action="/app/login">
-				Username: <input name="username" type="text"
-					placeholder="Joe Doeson" required /><br> Password: <input
-					name="pw" type="password" required /><br> <input
-					type="submit" value="Confirm" /> <input type="hidden"/>
-			</form>
-		</div>
+	</div>
 		</main>
+	</div>
 	</div>
 	<div id="footer">
 		<%@ include file = "footer.jsp" %>
@@ -48,3 +59,42 @@
 </body>
 
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

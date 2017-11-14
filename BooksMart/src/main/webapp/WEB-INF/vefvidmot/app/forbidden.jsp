@@ -22,14 +22,16 @@
 	<div id="header">
 		<%@ include file="header.jsp"%>
 	</div>
-	<main>
-	<div class="layout--forbidden">
-		<div class="dialog--forbidden">
-			<h1 class="h1--forbidden">You need to be logged in to view this
-				content.</h1>
+	<div class="forbidden-background">
+		
+		<div class="layout--forbidden">
+			<div class="dialog--forbidden">
+				<h1 class="h1--forbidden">You need to be logged in to view this
+					content.</h1>
+			</div>
 		</div>
+		
 	</div>
-	</main>
 	<div id="footer">
 		<%@ include file="footer.jsp"%>
 	</div>
