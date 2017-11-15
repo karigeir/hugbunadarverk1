@@ -679,6 +679,34 @@ th, td, thead {
 	position: relative;
 }
 
+.btn-copy-email .tooltiptext {
+	visibility: hidden;
+	background-color: rgba(1,1,1,0.7);
+	height: 1rem;
+	width: 100px;
+	right: 105%;
+	color: #fff;
+	text-align: center;
+	border-radius: 3px;
+	position: absolute;
+	z-index: 1;
+}
+
+.btn-copy-email:hover .tooltiptext {
+	visibility: visible;
+}
+
+.btn-copy-email .tooltiptext::after {
+	content: " ";
+	position: absolute;
+	top: 50%;
+	left: 100%;
+	margin-top: -5px;
+	border-width: 5px;
+	border-style: solid;
+	border-color: transparent transparent transparent rgba(1,1,1,0.7);
+}
+
 .no-results-msg {
 	margin-top: 5%;
 	font-family: Merriweather, georgia, serif;

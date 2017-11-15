@@ -39,8 +39,8 @@
 						<thead>
 							<tr class="results-table-head">
 								<th>Title</th>
-								<th>Author</th>
 								<th>Ed.</th>
+								<th>Author</th>
 								<th>Course</th>
 								<th>Dept.</th>
 								<th>School</th>
@@ -50,8 +50,8 @@
 						<c:forEach var="book" items="${books}">
 							<tr class="results-table-row">
 								<td>${book.getTitle()}</td>
-								<td>${book.getAuthor()}</td>
 								<td>${book.getEdition()}</td>
+								<td>${book.getAuthor()}</td>
 								<td>${book.getCourse().getName()}</td>
 								<td>${book.getCourse().getDepartment().getName()}</td>
 								<td>${book.getCourse().getDepartment().getSchool().getName()}</td>
@@ -61,6 +61,7 @@
 										<div class="btn-wrapper">
 											<button class="btn-copy-email" onclick="copyEmail(${book.getId()})">
 												<img src="../../css/copy.png" width=13.6 height=13.6/>
+												<span id="${ book.getId()}-tooltip" class="tooltiptext">Copy to Clipboard</span>
 											</button>
 										</div>
 									</div>
@@ -80,13 +81,17 @@
 	</div>
 	
 	<script>
-			function copyEmail(id) {
-  				var copyText = document.getElementById(id);
-  				copyText.select();
-  				document.execCommand("Copy");
-  				alert("Copied the text: " + copyText.value);
-			}
-		</script>
+		var g_lastId;
+		function copyEmail(id) {
+  			var copyText = document.getElementById(id);
+  			document.getElementById(id + "-tooltip").textContent = "Copied!";
+  			if (g_lastId && g_lastId !== id) {
+  				document.getElementById(g_lastId + "-tooltip").textContent = "Copy to Clipboard";
+  			}
+  			g_lastId = id;
+  			document.execCommand("Copy");
+		}
+	</script>
 	<div id="footer">
 		<%@ include file="footer.jsp"%>
 	</div>
