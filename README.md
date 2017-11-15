@@ -17,27 +17,9 @@ To run the project you'll first need to download it as a whole and un-zip it. Ne
 - Object-relational database management system (ORDBMS)
   For an example: PostgreSQL (https://postgresql.org/)
 
-### Installing
-
-A step by step series of examples that tell you have to get a development env running
-
-Say what the step will be
-
-```
-Give the example
-```
-
-And repeat
-
-```
-until finished
-```
-
-End with an example of getting some data out of the system or using it for a little demo
-
 ## Built With
 
-* [Eclipse] (https://www.eclipse.org/) - The Integrated Development Environment (IDE) used
+* [Eclipse](https://www.eclipse.org/) - The Integrated Development Environment (IDE) used
 * [Apache Tomcat](http://tomcat.apache.org/) - The Java servlet used Dependency Management
 * [PostgreSQL](https://postgresql.org/) - The Object-relational database management system (ORDBMS) used
 
