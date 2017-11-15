@@ -618,7 +618,7 @@ body {
 	font-family: Merriweather, georgia, serif;
 	font-size: 0.85rem;
  	margin-top: 5%; 
-	width: 70%;
+	width: 75%;
 	border-spacing: 0;
 	border: 1px solid black;
 	background: rgba(255,255,255,0.6);
@@ -683,7 +683,7 @@ th, td, thead {
 	visibility: hidden;
 	background-color: rgba(1,1,1,0.7);
 	height: 1rem;
-	width: 100px;
+	width: 7.5rem;
 	right: 105%;
 	color: #fff;
 	text-align: center;
