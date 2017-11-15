@@ -23,8 +23,7 @@
 			<%@ include file="header.jsp"%>
 		</div>
 		<div id="content">
-			<main class="main--frontpage">
-			<div class="logo"></div>
+			<div class="main--frontpage">
 			<div class="header--text">
 				<img class="fp-logo" src="../../css/bm-logo-white.png" />
 				<h1>BooksMart</h1>
@@ -41,7 +40,7 @@
 					</div>
 				</form>
 			</div>
-			</main>
+			</div>
 		</div>
 		<div id="footer">
 			<%@ include file="footer.jsp"%>

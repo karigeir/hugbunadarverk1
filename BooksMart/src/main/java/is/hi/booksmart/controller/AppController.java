@@ -204,7 +204,7 @@ public class AppController 	{
     		
     		if (list.isEmpty()) {
     			model.addAttribute("books", list);
-        		return "app/displayResults";
+        		return "app/displayResultsUserBooks";
     		}
     		User user = (User) session.getAttribute("myUser");
     		if (user == null) {

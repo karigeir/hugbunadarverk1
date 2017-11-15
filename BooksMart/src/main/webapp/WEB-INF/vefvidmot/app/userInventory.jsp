@@ -66,7 +66,7 @@
 				</table>
 			</c:when>
 			<c:otherwise>
-				<h3>No books found.</h3>
+				<h3 class="no-results-msg">No books found.</h3>
 			</c:otherwise>
 		</c:choose> 
 		</div>

@@ -22,15 +22,15 @@
 	</div>
 	<div class="as-background">
 	<div id="content">
-		<main>
+		<div class="adv-search-wrapper">
 		<div class="header--AdvSearch">
 			<h1 class="adv-search-title">Advanced search</h1>
 		</div>
 		<div>
 			<form id="searchform-main" method="GET" action="/app/test" role="form" class="search-bar">
-				<input class="input-field" name="title" type="text" placeholder="Title..."> 
-				<input class="input-field" name="edition" type="number" min=1 max=99 placeholder="Ed.">
-				<input class="input-field" name="author" type="text" placeholder="Author..."> 
+				<input class="input-field placeholder-white" name="title" type="text" placeholder="Title..."> 
+				<input class="input-field placeholder-white" name="edition" type="number" min=1 max=99 placeholder="Ed.">
+				<input class="input-field placeholder-white" name="author" type="text" placeholder="Author..."> 
 <!-- 				<input class="input-field" type="submit" value="Search"><br> -->
 				
 				<div class="input-btn-wrapper">
@@ -41,7 +41,7 @@
 			
 			</form>
 		</div>
-		</main>
+		</div>
 	</div>
 	</div>
 	<div id="footer">

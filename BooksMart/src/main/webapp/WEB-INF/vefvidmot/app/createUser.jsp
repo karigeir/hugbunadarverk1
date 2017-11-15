@@ -23,11 +23,11 @@
 	
 	<div class="register-background">
 	<div id="content">
-		<main>
+		<main class="login-wrapper">
 		<div class="login">
 			<div class="login-screen">
 				<div class="app-title">
-					<h1>Register</h1>
+					<h1 class="signin-register-font">Register</h1>
 				</div>
 					<div>
 					
@@ -36,10 +36,10 @@
 							<input class="input-login" name="username" type="text" class="login-field" value="" placeholder="username" required id="login-name">
 							<label class="login-field-icon fui-user" for="login-name"></label>
 							<c:if test="${not empty error}">
-							<div>${error}</div>
+							<div class="error-msg">${error}</div>
 							</c:if>
 							<c:if test="${not empty message}">
-							<div>${message}</div>
+							<div class="error-msg">${message}</div>
 										</c:if>
 							<input class="input-login" name="email" class="login-field" type="email" placeholder="john@doe.is" required id=login-name>			
 							<input class="input-login" name="pw" class="login-field" type="password" placeholder="password" required id="login-pass">
@@ -51,7 +51,7 @@
 					</div>
 			</div>
 			</div>
-		</main>
+		</div>
 	</div>
 	</div>
 	<div id="footer">

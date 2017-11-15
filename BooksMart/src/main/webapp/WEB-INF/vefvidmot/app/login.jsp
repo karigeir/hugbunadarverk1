@@ -23,11 +23,11 @@
 	
 	<div class="login-background">
 	<div id="content">
-		<main>
+		<div class="login-wrapper">
 		<div class="login">
 			<div class="login-screen">
 				<div class="app-title">
-					<h1>Sign in</h1>
+					<h1 class="signin-register-font">Sign in</h1>
 				</div>
 					<div>
 						<div class="login-form">
