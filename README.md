@@ -6,8 +6,6 @@ BooksMart - A innovative software that offers easy solutions to selling and purc
 
 To run the project you'll first need to download it as a whole and un-zip it. Next you'll need a Integrated Development Environment (IDE) to run it and a software to host it locally on a virtual server.
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
-
 ### Prerequisites
 
 - Integrated Development Environment (IDE)
