@@ -1,13 +1,10 @@
 @charset "ISO-8859-1";
 
 
-
-
 * {
 	margin: 0;
 	padding: 0;
 }
-
 
 html {
 	box-sizing: border-box;
@@ -116,14 +113,6 @@ body {
 #content {
 	padding-top: 17em;	
 }
-
-/* main { */
-/* 	display: flex; */
-/* 	flex-direction: column; */
-/* 	align-items: center; */
-/* 	margin-top: -10rem; */
-/* } */
-
 
 .search-bar {
 	display: inline-flex;
@@ -355,8 +344,6 @@ body {
     font-size: 1.7rem;
 }
 
-/* <-----> */
-
 .login-background {
 	height: 100%;
 	width: 100%;
@@ -557,7 +544,6 @@ body {
 	flex-direction: column;
 	align-items: center;
 	width: 75%;
-/* 	height: 100%; */
 	margin-bottom: 2.75%;
 }
 
@@ -568,7 +554,6 @@ body {
 	align-items: center;
 	width: 25%;
 	height: 100%;
-/* 	margin-bottom: 2.75%; */
 }
 
 .side-search-bar {
@@ -618,7 +603,7 @@ body {
 	font-family: Merriweather, georgia, serif;
 	font-size: 0.85rem;
  	margin-top: 5%; 
-	width: 75%;
+	width: 7git 5%;
 	border-spacing: 0;
 	border: 1px solid black;
 	background: rgba(255,255,255,0.6);
@@ -819,139 +804,6 @@ th, td, thead {
     color:#fff;
 }
 
-
-
-/* .form-wrapper { */
-/* 	width: 100%; */
-/* 	height: 100%; */
-/* 	display: flex; */
-/* 	flex-direction: row; */
-/* 	padding: 7rem 0rem 6rem 0rem; */
-/* 	align-items: center; */
-/* 	justify-content: center; */
-/* } */
-
-
-/* .form-table { */
-/* /* 	display: flex; */ */
-/* /* 	flex-direction: column; */ */
-/* 	align-items: center; */
-/* 	max-width: 25%; */
-/* 	height: 100%; */
-/* 	border: 1px solid black; */
-/* 	margin-bottom: 2.75%; */
-/* 	font-family: Merriweather, georgia, serif; */
-/* 	background: rgba(99, 77, 61, 0.48); */
-/* 	padding: 1rem 1rem 0rem 1rem; */
-/* 	border-radius: 25px; */
-/* 	justify-content: center; */
-/* } */
-
-/* .form-tableh1 { */
-/*     display: block; */
-/*     text-align: center; */
-/*     padding: 0; */
-/*     margin: 0px 0px 20px 0px; */
-/*     color: #5C5C5C; */
-/*     font-size:x-large; */
-/* } */
-/* .form-table ul { */
-/*     list-style:none; */
-/*     padding:0; */
-/*     margin:0;    */
-/*     height: 100%; */
-/* } */
-/* .form-table li { */
-/*     display: flex; */
-/*     flex-direction: column; */
-/*     padding: 1.4rem 1rem 0.9rem 1rem; */
-/*     padding: 8% 7% 2% 8%; */
-/*     border: 1px solid #DDDDDD; */
-/*     border-radius: 3px; */
-/* } */
-/* .form-table li:last-child { */
-/*     border:none; */
-/*     margin-bottom: 0px; */
-/*     text-align: center; */
-/* } */
-/* .form-table li > label { */
-/*     display: block; */
-/*     float: left; */
-/*     margin-top: -1rem; */
-/*     height: 14px; */
-/*     color: #ffffff; */
-/*     font-size: 14px; */
-/*     overflow: hidden; */
-/*     padding: 0rem 0rem 1.2rem 0rem; */
-/*     font-family: Merriweather, georgia, serif; */
-/* } */
-/* .form-table input[type="text"], */
-/* .form-table input[type="date"], */
-/* .form-table input[type="datetime"], */
-/* .form-table input[type="email"], */
-/* .form-table input[type="number"], */
-/* .form-table input[type="search"], */
-/* .form-table input[type="time"], */
-/* .form-table input[type="url"], */
-/* .form-table input[type="password"], */
-/* .form-table textarea, */
-/* .form-table select  */
-/* { */
-/*     box-sizing: border-box; */
-/*     -webkit-box-sizing: border-box; */
-/*     -moz-box-sizing: border-box; */
-/*     width: 100%; */
-/*     display: block; */
-/*     outline: none; */
-/*     border: none; */
-/*     height: 25px; */
-/*     line-height: 25px; */
-/*     font-size: 16px; */
-/*     padding: 0.3rem; */
-/*     font-family: Merriweather, georgia, serif; */
-/* } */
-/* .form-table input[type="text"]:focus, */
-/* .form-table input[type="date"]:focus, */
-/* .form-table input[type="datetime"]:focus, */
-/* .form-table input[type="email"]:focus, */
-/* .form-table input[type="number"]:focus, */
-/* .form-table input[type="search"]:focus, */
-/* .form-table input[type="time"]:focus, */
-/* .form-table input[type="url"]:focus, */
-/* .form-table input[type="password"]:focus, */
-/* .form-table textarea:focus, */
-/* .form-table select:focus  */
-/* { */
-/* } */
-/* .form-table li > span { */
-/*     background: #F3F3F3; */
-/*     display: block; */
-/*     padding: 3px; */
-/*     margin: 0 -9px -9px -9px; */
-/*     text-align: center; */
-/*     color: #716666; */
-/*     font-family: Merriweather, georgia, serif; */
-/*     font-size: 11px; */
-/* } */
-/* .form-table textarea{ */
-/*     resize:none; */
-/* } */
-/* .form-table input[type="submit"], */
-/* .form-table input[type="button"]{ */
-/*     background: #403a3a; */
-/*     border: none; */
-/*     padding: 1rem 1rem 1rem 1rem; */
-/*     border-bottom: 3px solid #c5c8ce; */
-/*     border-radius: 3px; */
-/*     color: #D2E2FF; */
-    
-/* } */
-/* .form-table input[type="submit"]:hover, */
-/* .form-table input[type="button"]:hover{ */
-/*     background: #828282; */
-/*     color:#fff; */
-/* } */
-
 /**
  * -------------
  * adv_search CSS
@@ -974,14 +826,6 @@ th, td, thead {
 
 /**
  * -------------
- * login CSS
- * -------------
-**/
-
-
-
-/**
- * -------------
  * createUser CSS
  * -------------
 **/
@@ -991,17 +835,4 @@ th, td, thead {
 	width: 100%;
 	background-image: url("blur1-weeblur.jpg");
 	background-size: cover;	
-}
-
-/**
- * -------------
- * book_confirm CSS
- * -------------
-**/
-
-.ba-background {
-	height: 100%;
-	width: 100%;
-	background-image: url("blur1-weeblur.jpg");
-	background-size: cover;
 }
